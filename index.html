@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet"
   />
 
@@ -355,15 +355,12 @@
       background: var(--white);
     }
 
-    .step b {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
+    .step-icon {
+      width: 62px;
+      height: 62px;
+      object-fit: contain;
+      display: block;
       margin-bottom: 16px;
-      border-radius: 50%;
-      background: var(--blue);
-      color: var(--white);
     }
 
     .step h3 {
@@ -653,14 +650,11 @@
 
     .about-signature {
       display: inline-block;
-      margin-top: 14px;
+      margin-top: 12px;
       color: var(--blue);
-      font-family: "Great Vibes", cursive;
-      font-size: 48px;
-      font-weight: 400;
-      line-height: 1;
-      letter-spacing: 0.02em;
-      text-transform: none;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
     }
 
     .about-contact {
@@ -1129,25 +1123,25 @@
 
         <div class="process-grid">
           <div class="step">
-            <b>1</b>
+            <img class="step-icon" src="assets/anfrage.png" alt="" />
             <h3>Anfrage</h3>
             <p>Sie senden uns die wichtigsten Informationen zu Ihrer Immobilie.</p>
           </div>
 
           <div class="step">
-            <b>2</b>
+            <img class="step-icon" src="assets/analyse.png" alt="" />
             <h3>Analyse</h3>
             <p>Wir prüfen Objekt, Anforderungen und Verwaltungsbedarf.</p>
           </div>
 
           <div class="step">
-            <b>3</b>
+            <img class="step-icon" src="assets/angebot.png" alt="" />
             <h3>Angebot</h3>
             <p>Sie erhalten ein transparentes, unverbindliches Angebot.</p>
           </div>
 
           <div class="step">
-            <b>4</b>
+            <img class="step-icon" src="assets/start.png" alt="" />
             <h3>Start</h3>
             <p>Nach Beauftragung übernehmen wir strukturiert die Verwaltung.</p>
           </div>
@@ -1277,7 +1271,7 @@
                 Mieter ernst nimmt und Entscheidungen nachvollziehbar macht.
               </p>
 
-              <span class="about-signature">BHV Böhme</span>
+              <span class="about-signature">BHV</span>
             </div>
           </div>
 

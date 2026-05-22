@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet"
   />
 
@@ -597,56 +597,111 @@
       font-size: 16px;
     }
 
-    .about-grid {
+    .about-panel {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 54px;
-      align-items: center;
-    }
-
-    .about-img {
+      grid-template-columns: 1.7fr 0.75fr;
+      max-width: 1060px;
+      margin: 0 auto;
       overflow: hidden;
-      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--white);
       box-shadow: var(--shadow);
     }
 
-    .about-card {
-      padding: 34px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--light);
+    .about-image-side {
+      min-height: 340px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 40px 46px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.92), rgba(255,255,255,0.62)),
+        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1500&q=80') center / cover no-repeat;
     }
 
-    .about-card h3 {
+    .about-image-side::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(36, 123, 145, 0.04);
+      pointer-events: none;
+    }
+
+    .about-content {
+      max-width: 620px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-content h2 {
       margin-bottom: 14px;
       color: var(--dark);
-      font-size: 30px;
-      line-height: 1.15;
+      font-size: clamp(26px, 3vw, 36px);
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      text-transform: uppercase;
     }
 
-    .check-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 22px;
+    .about-content p {
+      max-width: 520px;
+      margin-bottom: 10px;
+      color: #34434c;
+      font-size: 15px;
+      line-height: 1.75;
     }
 
-    .check-item {
+    .about-signature {
+      display: inline-block;
+      margin-top: 14px;
+      color: var(--blue);
+      font-family: "Great Vibes", cursive;
+      font-size: 48px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      text-transform: none;
+    }
+
+    .about-contact {
       display: flex;
-      align-items: flex-start;
+      flex-direction: column;
+      justify-content: center;
+      padding: 38px 34px;
+      border-left: 1px solid var(--border);
+      background: #fbfdfe;
+    }
+
+    .about-contact h3 {
+      margin-bottom: 18px;
+      color: var(--dark);
+      font-size: 26px;
+      line-height: 1.1;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .about-contact-list {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 22px;
+      color: #34434c;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .about-contact-list a,
+    .about-contact-list span {
+      display: flex;
+      align-items: center;
       gap: 12px;
     }
 
-    .check-item span {
-      width: 24px;
-      height: 24px;
-      flex: 0 0 24px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--blue);
-      color: var(--white);
-      font-size: 13px;
-      font-weight: 900;
+    .about-contact-list b {
+      width: 22px;
+      color: var(--blue);
+      font-size: 18px;
+      line-height: 1;
     }
 
     footer {
@@ -761,13 +816,21 @@
       }
 
       .request-grid,
-      .about-grid,
       .footer-grid {
         grid-template-columns: 1fr;
       }
 
       .hero {
         background-position: center;
+      }
+
+      .about-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .about-contact {
+        border-left: 0;
+        border-top: 1px solid var(--border);
       }
 
       .brand img {
@@ -836,6 +899,19 @@
 
       section {
         padding: 64px 0;
+      }
+
+      .about-image-side {
+        min-height: auto;
+        padding: 42px 24px;
+      }
+
+      .about-contact {
+        padding: 34px 24px;
+      }
+
+      .about-contact .btn {
+        width: 100%;
       }
 
       form {
@@ -1178,39 +1254,43 @@
     </section>
 
     <section id="ueber-uns">
-      <div class="container about-grid">
-        <div class="about-img">
-          <img
-            src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80"
-            alt="Moderne Immobilie"
-          />
-        </div>
+      <div class="container">
+        <div class="about-panel">
+          <div class="about-image-side">
+            <div class="about-content">
+              <p class="eyebrow">Über uns</p>
+              <h2>BHV Immobilienverwaltung</h2>
 
-        <div class="about-card">
-          <p class="eyebrow">Über uns</p>
-          <h3>Verwaltung, die Eigentümer wirklich entlastet</h3>
+              <p>
+                BHV Immobilienverwaltung steht für professionelle, transparente
+                und persönliche Betreuung von Immobilien und Eigentümern.
+              </p>
 
-          <p>
-            Wir kümmern uns um die kaufmännischen, technischen und
-            organisatorischen Aufgaben rund um Ihre Immobilie. Unser Ziel:
-            klare Prozesse, verlässliche Betreuung und langfristiger Werterhalt.
-          </p>
+              <p>
+                Seit über 20 Jahren verbinden wir Erfahrung, klare Abläufe und
+                zuverlässige Kommunikation, damit Ihre Immobilie langfristig
+                gut verwaltet und im Wert erhalten bleibt.
+              </p>
 
-          <div class="check-list">
-            <div class="check-item">
-              <span>✓</span>
-              <p>Persönliche Betreuung statt anonymer Massenabwicklung.</p>
+              <p>
+                Unser Anspruch ist eine Verwaltung, die Eigentümer entlastet,
+                Mieter ernst nimmt und Entscheidungen nachvollziehbar macht.
+              </p>
+
+              <span class="about-signature">BHV Böhme</span>
+            </div>
+          </div>
+
+          <div class="about-contact">
+            <h3>Kontakt</h3>
+
+            <div class="about-contact-list">
+              <a href="tel:+4917610870618"><b>☎</b>0176 1087 0618</a>
+              <a href="mailto:info@bhv-immobilienverwaltung.de"><b>✉</b>info@bhv-immobilienverwaltung.de</a>
+              <span><b>📍</b>Deutschlandweite Immobilienverwaltung</span>
             </div>
 
-            <div class="check-item">
-              <span>✓</span>
-              <p>Transparente Abrechnung und nachvollziehbare Dokumentation.</p>
-            </div>
-
-            <div class="check-item">
-              <span>✓</span>
-              <p>Schnelle Reaktion bei Anliegen von Eigentümern und Mietern.</p>
-            </div>
+            <a class="btn btn-primary" href="#kontakt">Jetzt kontaktieren →</a>
           </div>
         </div>
       </div>

@@ -999,34 +999,254 @@
         font-size: 34px;
       }
     }
+  
+
+    .contact-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 96px 0 82px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.97), rgba(255,255,255,0.86), rgba(255,255,255,0.58)),
+        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=80") center / cover no-repeat;
+    }
+
+    .contact-hero-content {
+      width: min(720px, 100%);
+    }
+
+    .contact-hero h1 {
+      margin-bottom: 18px;
+      color: var(--dark);
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.04;
+      letter-spacing: -0.05em;
+    }
+
+    .contact-hero h1 span {
+      color: var(--blue);
+    }
+
+    .contact-hero p {
+      max-width: 650px;
+      color: #394952;
+      font-size: 19px;
+    }
+
+    .contact-main {
+      background: linear-gradient(135deg, #ffffff 0%, #edf7f9 100%);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .contact-info-panel,
+    .contact-form-panel,
+    .contact-note {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-info-panel {
+      padding: 32px;
+    }
+
+    .contact-info-panel h2,
+    .contact-form-panel h2 {
+      margin-bottom: 12px;
+      color: var(--dark);
+      font-size: 30px;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+    }
+
+    .contact-info-panel > p {
+      margin-bottom: 24px;
+      color: #53616a;
+    }
+
+    .contact-methods {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .contact-method {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fbfdfe;
+    }
+
+    .contact-method b {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(36, 123, 145, 0.11);
+      color: var(--blue);
+      font-size: 20px;
+    }
+
+    .contact-method strong {
+      display: block;
+      color: var(--dark);
+      font-size: 16px;
+      line-height: 1.3;
+    }
+
+    .contact-method a,
+    .contact-method span {
+      color: #5f6b72;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .contact-note {
+      padding: 22px;
+      background: linear-gradient(135deg, var(--dark), #17232b);
+      color: var(--white);
+    }
+
+    .contact-note strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #9bd0dc;
+      font-size: 18px;
+    }
+
+    .contact-note p {
+      color: rgba(255,255,255,0.78);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .contact-form-panel {
+      padding: 32px;
+    }
+
+    .contact-form-panel > p {
+      margin-bottom: 22px;
+      color: #53616a;
+    }
+
+    .contact-page-form {
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      background: transparent;
+    }
+
+    .service-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .service-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 13px;
+      border: 1px solid #d4e0e4;
+      border-radius: 12px;
+      color: #34434c;
+      font-weight: 700;
+      cursor: pointer;
+      background: #fbfdfe;
+    }
+
+    .service-option input {
+      width: auto;
+      accent-color: var(--blue);
+    }
+
+    .contact-map {
+      padding-top: 0;
+      background: var(--white);
+    }
+
+    .map-card {
+      min-height: 280px;
+      display: grid;
+      place-items: center;
+      padding: 34px;
+      border: 1px dashed rgba(36, 123, 145, 0.35);
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(36, 123, 145, 0.08), rgba(255,255,255,0.92)),
+        repeating-linear-gradient(45deg, rgba(36,123,145,0.05) 0 12px, transparent 12px 24px);
+      text-align: center;
+    }
+
+    .map-card h2 {
+      margin-bottom: 10px;
+      color: var(--dark);
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -0.035em;
+    }
+
+    .map-card p {
+      max-width: 640px;
+      color: #53616a;
+    }
+
+    @media (max-width: 980px) {
+      .contact-layout,
+      .service-options {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .contact-hero {
+        padding: 64px 0 58px;
+      }
+
+      .contact-info-panel,
+      .contact-form-panel {
+        padding: 24px;
+      }
+    }
+
   </style>
 </head>
-
 <body>
   <div class="topbar">
     <div class="container">
       <span>✉ info@bhv-immobilienverwaltung.de</span>
       <span>☎ 0176 1087 0618</span>
-      <span>📍 Deutschlandweit</span>
     </div>
   </div>
 
   <header>
     <div class="container navbar">
-      <a class="brand" href="#start" aria-label="BHV Immobilienverwaltung GmbH">
+      <a class="brand" href="index.html#start" aria-label="BHV Immobilienverwaltung GmbH">
         <img src="assets/logo.png" alt="BHV Immobilienverwaltung GmbH Logo" />
       </a>
 
       <nav id="menu">
-        <a class="active" href="#start">Start</a>
-        <a href="#leistungen">Leistungen</a>
-        <a href="#ablauf">Ablauf</a>
-        <a href="#vorteile">Vorteile</a>
-        <a href="kontakt.html">Kontakt</a>
-        <a href="#ueber-uns">Über uns</a>
+        <a href="index.html#start">Start</a>
+        <a href="index.html#leistungen">Leistungen</a>
+        <a href="index.html#ablauf">Ablauf</a>
+        <a href="index.html#vorteile">Vorteile</a>
+        <a class="active" href="#kontakt">Kontakt</a>
+        <a href="index.html#ueber-uns">Über uns</a>
       </nav>
 
-      <a href="kontakt.html" class="btn btn-primary">Anfrage stellen</a>
+      <a href="#kontakt" class="btn btn-primary">Anfrage stellen</a>
 
       <button
         class="menu-btn"
@@ -1039,326 +1259,129 @@
     </div>
   </header>
 
+  
   <main>
-    <section class="hero" id="start">
+    <section class="contact-hero" id="kontakt">
       <div class="container">
-        <div class="hero-content">
-          <h1>
-            Professionelle Immobilienverwaltung
-            <span>für Eigentümer</span>
-          </h1>
-
-          <p>
-            BHV Immobilienverwaltung GmbH betreut Immobilien mit Sorgfalt,
-            Struktur und klarer Kommunikation – für Werterhalt, Entlastung und
-            zufriedene Eigentümer.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#leistungen">Leistungen ansehen</a>
-            <a class="btn btn-outline" href="kontakt.html">Kontakt aufnehmen</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="services" id="leistungen">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Unsere Leistungen</p>
-          <h2>Passende Lösungen für jede Immobilie</h2>
-          <div class="line"></div>
-        </div>
-
-        <div class="cards">
-          <article class="card">
-            <img class="service-thumb" src="assets/weg.png" alt="" />
-            <h3>WEG-Verwaltung</h3>
-            <p>
-              Organisation von Eigentümerversammlungen, Beschlussumsetzung,
-              Wirtschaftspläne, Hausgeldabrechnungen und Objektbetreuung.
-            </p>
-            <a class="more" href="kontakt.html">Anfrage senden →</a>
-          </article>
-
-          <article class="card">
-            <img class="service-thumb" src="assets/mietverwaltung.png" alt="" />
-            <h3>Mietverwaltung</h3>
-            <p>
-              Mieterkommunikation, Mietzahlungen, Betriebskostenabrechnung,
-              Vertragsmanagement und Koordination von Instandhaltung.
-            </p>
-            <a class="more" href="kontakt.html">Anfrage senden →</a>
-          </article>
-
-          <article class="card">
-            <img class="service-thumb" src="assets/sondereigentum.png" alt="" />
-            <h3>Sondereigentum</h3>
-            <p>
-              Individuelle Betreuung einzelner Einheiten mit klarer
-              Kommunikation, Kontrolle und regelmäßiger Information.
-            </p>
-            <a class="more" href="kontakt.html">Anfrage senden →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="benefits" id="vorteile">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Ihre Vorteile</p>
-          <h2>Darauf können Sie sich verlassen</h2>
-        </div>
-
-        <div class="benefit-grid">
-          <div class="benefit">
-            <img class="benefit-thumb" src="assets/zuverlaessigkeit.png" alt="" />
-            <div class="benefit-text">
-              <h3>Zuverlässigkeit</h3>
-              <p>Verbindliche Prozesse und klare Zuständigkeiten.</p>
-            </div>
-          </div>
-
-          <div class="benefit">
-            <img class="benefit-thumb" src="assets/ansprechpartner.png" alt="" />
-            <div class="benefit-text">
-              <h3 class="small-title">Ansprechpartner</h3>
-              <p>Direkte Kommunikation und persönliche Betreuung.</p>
-            </div>
-          </div>
-
-          <div class="benefit">
-            <img class="benefit-thumb" src="assets/transparenz.png" alt="" />
-            <div class="benefit-text">
-              <h3>Transparenz</h3>
-              <p>Nachvollziehbare Abrechnungen und Dokumente.</p>
-            </div>
-          </div>
-
-          <div class="benefit">
-            <img class="benefit-thumb" src="assets/werterhalt.png" alt="" />
-            <div class="benefit-text">
-              <h3>Werterhalt</h3>
-              <p>Vorausschauende Verwaltung Ihrer Immobilie.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="trust-strip" aria-label="Kennzahlen">
-      <div class="container">
-        <div class="trust-strip-box">
-          <div class="trust-item">
-            <img class="trust-icon" src="assets/einheiten.png" alt="" />
-            <div>
-              <strong class="trust-number count-up" data-count="20" data-suffix="+">0</strong>
-              <span class="trust-title">Jahre Erfahrung</span>
-              <p>Seit über 20 Jahren stehen wir für eine zuverlässige und strukturierte Betreuung von Eigentümern und Immobilien.</p>
-            </div>
-          </div>
-
-          <div class="trust-item">
-            <img class="trust-icon" src="assets/reaktion.png" alt="" />
-            <div>
-              <strong class="trust-number">Schnelle</strong>
-              <span class="trust-title">Reaktion</span>
-              <p>Klare Kommunikation und zeitnahe Bearbeitung Ihrer Anliegen.</p>
-            </div>
-          </div>
-
-          <div class="trust-item">
-            <img class="trust-icon" src="assets/zuverlaessig.png" alt="" />
-            <div>
-              <strong class="trust-number count-up" data-count="100" data-suffix="%">0</strong>
-              <span class="trust-title">Zuverlässigkeit</span>
-              <p>Transparente Abläufe, auf die Sie sich verlassen können.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <section id="ablauf">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">So arbeiten wir</p>
-          <h2>Einfacher Ablauf bis zur Betreuung</h2>
-          <div class="line"></div>
-        </div>
-
-        <div class="process-grid">
-          <div class="step reveal-step">
-            <img class="step-icon" src="assets/anfrage.png" alt="" />
-            <h3>1. Anfrage</h3>
-            <p>Sie senden uns die wichtigsten Informationen zu Ihrer Immobilie.</p>
-          </div>
-
-          <div class="step reveal-step">
-            <img class="step-icon" src="assets/analyse.png" alt="" />
-            <h3>2. Analyse</h3>
-            <p>Wir prüfen Objekt, Anforderungen und Verwaltungsbedarf.</p>
-          </div>
-
-          <div class="step reveal-step">
-            <img class="step-icon" src="assets/angebot.png" alt="" />
-            <h3>3. Angebot</h3>
-            <p>Sie erhalten ein transparentes, unverbindliches Angebot.</p>
-          </div>
-
-          <div class="step reveal-step">
-            <img class="step-icon" src="assets/start.png" alt="" />
-            <h3>4. Start</h3>
-            <p>Nach Beauftragung übernehmen wir strukturiert die Verwaltung.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="request" id="kontakt">
-      <div class="container request-grid">
-        <div class="request-text">
+        <div class="contact-hero-content soft-reveal is-visible">
           <p class="eyebrow">Kontakt</p>
-          <h2>Fordern Sie ein unverbindliches Angebot an</h2>
-          <div class="line" style="margin-left: 0;"></div>
-
+          <h1>Wir freuen uns auf <span>Ihre Anfrage</span></h1>
           <p>
             Schreiben Sie uns kurz, um welche Immobilie es geht. Wir melden uns
-            schnellstmöglich bei Ihnen zurück.
+            schnellstmöglich bei Ihnen zurück und besprechen die nächsten Schritte persönlich.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-main">
+      <div class="container contact-layout">
+        <aside class="contact-info-panel">
+          <p class="eyebrow">BHV Immobilienverwaltung</p>
+          <h2>Direkt erreichbar</h2>
+          <p>
+            Für WEG-Verwaltung, Mietverwaltung und Sondereigentumsverwaltung stehen wir Ihnen
+            zuverlässig zur Seite.
           </p>
 
-          <div class="contact-list">
-            <div>
-              <span>✉</span>
-              <a href="mailto:info@bhv-immobilienverwaltung.de">
-                info@bhv-immobilienverwaltung.de
-              </a>
+          <div class="contact-methods">
+            <div class="contact-method">
+              <b>✉</b>
+              <div>
+                <strong>E-Mail</strong>
+                <a href="mailto:info@bhv-immobilienverwaltung.de">info@bhv-immobilienverwaltung.de</a>
+              </div>
             </div>
 
-            <div>
-              <span>☎</span>
-              <a href="tel:+4917610870618">0176 1087 0618</a>
-            </div>
-
-            <div>
-              <span>📍</span>
-              <span>Deutschlandweite Immobilienverwaltung</span>
-            </div>
-          </div>
-        </div>
-
-        <form onsubmit="sendMail(event)">
-          <div class="form-grid">
-            <div>
-              <label for="name">Name</label>
-              <input id="name" name="name" placeholder="Ihr Name" required />
-            </div>
-
-            <div>
-              <label for="email">E-Mail</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Ihre E-Mail-Adresse"
-                required
-              />
-            </div>
-
-            <div>
-              <label for="phone">Telefon</label>
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                placeholder="Telefonnummer"
-              />
-            </div>
-
-            <div>
-              <label for="units">Einheiten</label>
-              <input
-                id="units"
-                name="units"
-                type="number"
-                min="1"
-                placeholder="z. B. 12"
-              />
-            </div>
-
-            <div class="full">
-              <label for="service">Gewünschte Leistung</label>
-              <select id="service" name="service">
-                <option>WEG-Verwaltung</option>
-                <option>Mietverwaltung</option>
-                <option>Sondereigentumsverwaltung</option>
-                <option>Allgemeine Anfrage</option>
-              </select>
-            </div>
-
-            <div class="full">
-              <label for="message">Nachricht</label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Ihre Nachricht an uns..."
-              ></textarea>
+            <div class="contact-method">
+              <b>☎</b>
+              <div>
+                <strong>Telefon</strong>
+                <a href="tel:+4917610870618">0176 1087 0618</a>
+              </div>
             </div>
           </div>
 
-          <button class="btn btn-primary" type="submit">
-            Anfrage per E-Mail senden →
-          </button>
-        </form>
-      </div>
-    </section>
-
-    <section id="ueber-uns">
-      <div class="container">
-        <div class="about-panel">
-          <div class="about-image-side">
-            <div class="about-content">
-              <p class="eyebrow">Über uns</p>
-              <h2>BHV Immobilienverwaltung</h2>
-
-              <p>
-                BHV Immobilienverwaltung steht für professionelle, transparente
-                und persönliche Betreuung von Immobilien und Eigentümern.
-              </p>
-
-              <p>
-                Seit über 20 Jahren verbinden wir Erfahrung, klare Abläufe und
-                zuverlässige Kommunikation, damit Ihre Immobilie langfristig
-                gut verwaltet und im Wert erhalten bleibt.
-              </p>
-
-              <p>
-                Unser Anspruch ist eine Verwaltung, die Eigentümer entlastet,
-                Mieter ernst nimmt und Entscheidungen nachvollziehbar macht.
-              </p>
-
-              <span class="about-signature">BHV Böhme</span>
-            </div>
+          <div class="contact-note">
+            <strong>Schnelle Rückmeldung</strong>
+            <p>
+              Je genauer Ihre Angaben zur Immobilie sind, desto schneller können wir Ihren
+              Verwaltungsbedarf einschätzen und ein passendes Angebot vorbereiten.
+            </p>
           </div>
+        </aside>
 
-          <div class="about-contact">
-            <h3>Kontakt</h3>
+        <div class="contact-form-panel">
+          <p class="eyebrow">Anfrage senden</p>
+          <h2>Unverbindliches Angebot anfordern</h2>
+          <p>
+            Füllen Sie das Formular aus. Beim Absenden wird Ihre E-Mail-App mit allen Angaben geöffnet.
+          </p>
 
-            <div class="about-contact-list">
-              <a href="tel:+4917610870618"><b>☎</b>0176 1087 0618</a>
-              <a href="mailto:info@bhv-immobilienverwaltung.de"><b>✉</b>info@bhv-immobilienverwaltung.de</a>
-              <span><b>📍</b>Deutschlandweite Immobilienverwaltung</span>
+          <form class="contact-page-form" onsubmit="sendMail(event)">
+            <div class="form-grid">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" placeholder="Ihr Name" required />
+              </div>
+
+              <div>
+                <label for="email">E-Mail</label>
+                <input id="email" name="email" type="email" placeholder="Ihre E-Mail-Adresse" required />
+              </div>
+
+              <div>
+                <label for="phone">Telefon</label>
+                <input id="phone" name="phone" type="tel" placeholder="Telefonnummer" />
+              </div>
+
+              <div>
+                <label for="units">Einheiten</label>
+                <input id="units" name="units" type="number" min="1" placeholder="z. B. 12" />
+              </div>
+
+              <div class="full">
+                <label for="object">Objekt / Ort</label>
+                <select id="object" name="object" onchange="toggleCustomObject(this)">
+                  <option value="" selected disabled>z. B.</option>
+                  <option value="1 Objekt">1 Objekt</option>
+                  <option value="2 Objekte">2 Objekte</option>
+                  <option value="3 Objekte">3 Objekte</option>
+                  <option value="4 Objekte">4 Objekte</option>
+                  <option value="5+ Objekte">5+ Objekte</option>
+                  <option value="Sonstiges">Sonstiges / Eigene Eingabe</option>
+                </select>
+                <input
+                  class="custom-object-field"
+                  id="objectCustom"
+                  name="objectCustom"
+                  placeholder="Eigene Angabe schreiben..."
+                  style="display: none; margin-top: 12px;"
+                />
+              </div>
+
+              <div class="full">
+                <label>Gewünschte Leistung</label>
+                <div class="service-options">
+                  <label class="service-option"><input type="checkbox" name="services" value="WEG-Verwaltung" /> WEG-Verwaltung</label>
+                  <label class="service-option"><input type="checkbox" name="services" value="Mietverwaltung" /> Mietverwaltung</label>
+                  <label class="service-option"><input type="checkbox" name="services" value="Sondereigentumsverwaltung" /> Sondereigentumsverwaltung</label>
+                </div>
+              </div>
+
+              <div class="full">
+                <label for="message">Nachricht</label>
+                <textarea id="message" name="message" placeholder="Beschreiben Sie kurz Ihr Anliegen..."></textarea>
+              </div>
             </div>
 
-            <a class="btn btn-primary" href="kontakt.html">Jetzt kontaktieren →</a>
-          </div>
+            <button class="btn btn-primary" type="submit">Anfrage per E-Mail senden →</button>
+          </form>
         </div>
       </div>
     </section>
+
   </main>
-
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -1370,10 +1393,10 @@
         <div>
           <h4>Navigation</h4>
           <ul>
-            <li><a href="#start">Start</a></li>
-            <li><a href="#leistungen">Leistungen</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
-            <li><a href="#ueber-uns">Über uns</a></li>
+            <li><a href="index.html#start">Start</a></li>
+            <li><a href="index.html#leistungen">Leistungen</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="index.html#ueber-uns">Über uns</a></li>
           </ul>
         </div>
 
@@ -1396,7 +1419,6 @@
               </a>
             </li>
             <li><a href="tel:+4917610870618">0176 1087 0618</a></li>
-            <li>Deutschlandweit</li>
           </ul>
         </div>
       </div>
@@ -1407,18 +1429,41 @@
     </div>
   </footer>
 
+
   <script>
+    function toggleCustomObject(select) {
+      const customField = document.getElementById("objectCustom");
+      if (!customField) return;
+
+      if (select.value === "Sonstiges") {
+        customField.style.display = "block";
+        customField.focus();
+      } else {
+        customField.style.display = "none";
+        customField.value = "";
+      }
+    }
+
     function sendMail(event) {
       event.preventDefault();
 
       const form = event.target;
-      const subject = encodeURIComponent("Neue Anfrage über die BHV Website");
+      const services = Array.from(form.querySelectorAll('input[name="services"]:checked'))
+        .map((input) => input.value)
+        .join(', ');
+
+      const objectValue = form.object.value === "Sonstiges"
+        ? (form.objectCustom.value || "Sonstiges")
+        : form.object.value;
+
+      const subject = encodeURIComponent("Neue Kontaktanfrage über die BHV Website");
       const body = encodeURIComponent(
         `Name: ${form.name.value}\n` +
         `E-Mail: ${form.email.value}\n` +
         `Telefon: ${form.phone.value}\n` +
+        `Objekt / Ort: ${objectValue || 'Keine Auswahl'}\n` +
         `Einheiten: ${form.units.value}\n` +
-        `Leistung: ${form.service.value}\n\n` +
+        `Gewünschte Leistungen: ${services || 'Keine Auswahl'}\n\n` +
         `Nachricht:\n${form.message.value}`
       );
 
@@ -1426,114 +1471,28 @@
         `mailto:info@bhv-immobilienverwaltung.de?subject=${subject}&body=${body}`;
     }
 
-    function animateCounters() {
-      const counters = document.querySelectorAll(".count-up");
-      const duration = 1400;
+    function revealPage() {
+      document.body.classList.add("page-ready");
 
-      counters.forEach((counter) => {
-        if (counter.dataset.animated === "true") return;
+      const items = document.querySelectorAll("section, .contact-method, .contact-form-panel, .contact-note, footer");
+      items.forEach((item) => item.classList.add("soft-reveal"));
 
-        counter.dataset.animated = "true";
-
-        const target = Number(counter.dataset.count);
-        const suffix = counter.dataset.suffix || "";
-        const startTime = performance.now();
-
-        function updateCounter(currentTime) {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const easedProgress = 1 - Math.pow(1 - progress, 3);
-          const currentValue = Math.floor(easedProgress * target);
-
-          counter.textContent = `${currentValue}${suffix}`;
-
-          if (progress < 1) {
-            requestAnimationFrame(updateCounter);
-          } else {
-            counter.textContent = `${target}${suffix}`;
-          }
-        }
-
-        requestAnimationFrame(updateCounter);
-      });
-    }
-
-    const trustStrip = document.querySelector(".trust-strip");
-
-    if (trustStrip) {
-      const counterObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              animateCounters();
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.35
-        }
-      );
-
-      counterObserver.observe(trustStrip);
-    }
-
-
-    function revealProcessSteps() {
-      const revealSteps = document.querySelectorAll(".reveal-step");
-
-      if (!revealSteps.length) return;
-
-      const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
+              obs.unobserve(entry.target);
             }
           });
         },
-        {
-          threshold: 0.28
-        }
+        { threshold: 0.12 }
       );
 
-      revealSteps.forEach((step) => revealObserver.observe(step));
+      items.forEach((item) => observer.observe(item));
     }
 
-
-    function smoothRevealSite() {
-      const revealItems = document.querySelectorAll(
-        ".hero-content, .section-head, .card, .benefit, .trust-item, .request-text, form, .about-panel, footer"
-      );
-
-      if (!revealItems.length) return;
-
-      const smoothObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.08,
-          rootMargin: "0px 0px -20px 0px"
-        }
-      );
-
-      revealItems.forEach((item, index) => {
-        item.classList.add("smooth-reveal");
-        item.style.transitionDelay = "0s";
-        smoothObserver.observe(item);
-      });
-    }
-
-    smoothRevealSite();
-
-    revealProcessSteps();
+    revealPage();
   </script>
 </body>
 </html>

@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BHV Immobilienverwaltung GmbH</title>
+  <title>Hausverwaltung Böhme</title>
   <meta
     name="description"
-    content="BHV Immobilienverwaltung GmbH – professionelle WEG-Verwaltung, Mietverwaltung und Sondereigentumsverwaltung."
+    content="Hausverwaltung Böhme – Sondereigentum, Mietverwaltung und WEG-Verwaltung."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap"
     rel="stylesheet"
   />
 
@@ -145,31 +145,45 @@
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
+      min-width: 265px;
     }
 
     .brand img {
-      width: 126px;
+      width: 98px;
       height: auto;
+      flex: 0 0 auto;
+    }
+
+    .brand-text {
+      display: block;
+      min-width: 0;
+      line-height: 1.1;
     }
 
     .brand-text strong {
       display: block;
       color: var(--dark);
-      font-size: 20px;
-      line-height: 1;
-      letter-spacing: 0.04em;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
     }
 
     .brand-text small {
       display: block;
-      margin-top: 5px;
-      color: var(--blue);
-      font-size: 12px;
+      margin-top: 4px;
+      color: #8a969d;
+      font-size: 8.5px;
       font-weight: 800;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.16em;
+      line-height: 1.25;
+      text-transform: uppercase;
+      white-space: nowrap;
     }
 
     nav {
@@ -916,8 +930,22 @@
         border-top: 1px solid var(--border);
       }
 
+      .brand {
+        min-width: 230px;
+        gap: 8px;
+      }
+
       .brand img {
-        width: 100px;
+        width: 72px;
+      }
+
+      .brand-text strong {
+        font-size: 15px;
+      }
+
+      .brand-text small {
+        font-size: 7px;
+        letter-spacing: 0.11em;
       }
     }
 
@@ -930,8 +958,29 @@
         height: 76px;
       }
 
+      .brand {
+        min-width: 0;
+        max-width: calc(100% - 52px);
+      }
+
+      .brand img {
+        width: 60px;
+      }
+
       .brand-text {
-        display: none;
+        display: block;
+      }
+
+      .brand-text strong {
+        font-size: 13px;
+      }
+
+      .brand-text small {
+        max-width: 185px;
+        font-size: 6px;
+        letter-spacing: 0.08em;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .container {
@@ -1079,8 +1128,12 @@
 
   <header>
     <div class="container navbar">
-      <a class="brand" href="#start" aria-label="BHV Immobilienverwaltung GmbH">
-        <img src="assets/logo.png" alt="BHV Immobilienverwaltung GmbH Logo" />
+      <a class="brand" href="#start" aria-label="Hausverwaltung Böhme">
+        <img src="assets/logo.png" alt="Hausverwaltung Böhme Logo" />
+        <span class="brand-text">
+          <strong>Hausverwaltung Böhme</strong>
+          <small>Sondereigentum · Mietverwaltung · WEG-Verwaltung</small>
+        </span>
       </a>
 
       <nav id="menu">
@@ -1115,7 +1168,7 @@
           </h1>
 
           <p>
-            BHV Immobilienverwaltung GmbH betreut Immobilien mit Sorgfalt,
+            Hausverwaltung Böhme betreut Immobilien mit Sorgfalt,
             Struktur und klarer Kommunikation – für Werterhalt, Entlastung und
             zufriedene Eigentümer.
           </p>
@@ -1289,10 +1342,10 @@
           <div class="about-image-side">
             <div class="about-content">
               <p class="eyebrow">Über uns</p>
-              <h2>BHV Immobilienverwaltung</h2>
+              <h2>Hausverwaltung Böhme</h2>
 
               <p>
-                BHV Immobilienverwaltung steht für transparente, persönliche
+                Hausverwaltung Böhme steht für transparente, persönliche
                 und zuverlässige Betreuung Ihrer Immobilie.
               </p>
 
@@ -1301,7 +1354,7 @@
                 gute Kommunikation und langfristigen Werterhalt.
               </p>
 
-              <span class="about-signature">BHV Böhme</span>
+              <span class="about-signature">Böhme</span>
             </div>
           </div>
 
@@ -1325,7 +1378,7 @@
       <div class="footer-grid">
         <div>
           <img src="assets/logo.png" alt="BHV Logo" />
-          <p>BHV Immobilienverwaltung GmbH – zuverlässig, transparent und persönlich.</p>
+          <p>Hausverwaltung Böhme GmbH – zuverlässig, transparent und persönlich.</p>
         </div>
 
         <div>
@@ -1362,7 +1415,7 @@
       </div>
 
       <div class="copyright">
-        © 2026 BHV Immobilienverwaltung GmbH. Alle Rechte vorbehalten.
+        © 2026 Hausverwaltung Böhme GmbH. Alle Rechte vorbehalten.
       </div>
     </div>
   </footer>

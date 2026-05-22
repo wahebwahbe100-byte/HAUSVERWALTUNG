@@ -371,6 +371,23 @@
       background: var(--light);
     }
 
+    .service-thumb-link {
+      display: block;
+      overflow: hidden;
+      margin-bottom: 22px;
+      border-radius: 16px;
+    }
+
+    .service-thumb-link .service-thumb {
+      margin-bottom: 0;
+      transition: transform 0.32s ease, filter 0.32s ease;
+    }
+
+    .service-thumb-link:hover .service-thumb {
+      transform: scale(1.055);
+      filter: brightness(1.04);
+    }
+
     .card h3 {
       margin-bottom: 10px;
       color: var(--dark);
@@ -1068,7 +1085,7 @@
 
       <nav id="menu">
         <a class="active" href="#start">Start</a>
-        <a href="#leistungen">Leistungen</a>
+        <a href="leistungen.html">Leistungen</a>
         <a href="#ablauf">Ablauf</a>
         <a href="#vorteile">Vorteile</a>
         <a href="kontakt.html">Kontakt</a>
@@ -1104,7 +1121,7 @@
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#leistungen">Leistungen ansehen</a>
+            <a class="btn btn-primary" href="leistungen.html">Leistungen ansehen</a>
             <a class="btn btn-outline" href="kontakt.html">Kontakt aufnehmen</a>
           </div>
         </div>
@@ -1121,33 +1138,33 @@
 
         <div class="cards">
           <article class="card">
-            <img class="service-thumb" src="assets/weg.png" alt="" />
+            <a class="service-thumb-link" href="leistungen.html#weg" aria-label="Mehr zur WEG-Verwaltung"><img class="service-thumb" src="assets/weg.png" alt="WEG-Verwaltung" /></a>
             <h3>WEG-Verwaltung</h3>
             <p>
               Organisation von Eigentümerversammlungen, Beschlussumsetzung,
               Wirtschaftspläne, Hausgeldabrechnungen und Objektbetreuung.
             </p>
-            <a class="more" href="kontakt.html">Anfrage senden →</a>
+            <a class="more" href="leistungen.html#weg">Mehr erfahren →</a>
           </article>
 
           <article class="card">
-            <img class="service-thumb" src="assets/mietverwaltung.png" alt="" />
+            <a class="service-thumb-link" href="leistungen.html#mietverwaltung" aria-label="Mehr zur Mietverwaltung"><img class="service-thumb" src="assets/mietverwaltung.png" alt="Mietverwaltung" /></a>
             <h3>Mietverwaltung</h3>
             <p>
               Mieterkommunikation, Mietzahlungen, Betriebskostenabrechnung,
               Vertragsmanagement und Koordination von Instandhaltung.
             </p>
-            <a class="more" href="kontakt.html">Anfrage senden →</a>
+            <a class="more" href="leistungen.html#mietverwaltung">Mehr erfahren →</a>
           </article>
 
           <article class="card">
-            <img class="service-thumb" src="assets/sondereigentum.png" alt="" />
+            <a class="service-thumb-link" href="leistungen.html#sondereigentum" aria-label="Mehr zum Sondereigentum"><img class="service-thumb" src="assets/sondereigentum.png" alt="Sondereigentum" /></a>
             <h3>Sondereigentum</h3>
             <p>
               Individuelle Betreuung einzelner Einheiten mit klarer
               Kommunikation, Kontrolle und regelmäßiger Information.
             </p>
-            <a class="more" href="kontakt.html">Anfrage senden →</a>
+            <a class="more" href="leistungen.html#sondereigentum">Mehr erfahren →</a>
           </article>
         </div>
       </div>
@@ -1275,19 +1292,13 @@
               <h2>BHV Immobilienverwaltung</h2>
 
               <p>
-                BHV Immobilienverwaltung steht für professionelle, transparente
-                und persönliche Betreuung von Immobilien und Eigentümern.
+                BHV Immobilienverwaltung steht für transparente, persönliche
+                und zuverlässige Betreuung Ihrer Immobilie.
               </p>
 
               <p>
-                Seit über 20 Jahren verbinden wir Erfahrung, klare Abläufe und
-                zuverlässige Kommunikation, damit Ihre Immobilie langfristig
-                gut verwaltet und im Wert erhalten bleibt.
-              </p>
-
-              <p>
-                Unser Anspruch ist eine Verwaltung, die Eigentümer entlastet,
-                Mieter ernst nimmt und Entscheidungen nachvollziehbar macht.
+                Mit über 20 Jahren Erfahrung sorgen wir für klare Abläufe,
+                gute Kommunikation und langfristigen Werterhalt.
               </p>
 
               <span class="about-signature">BHV Böhme</span>
@@ -1321,7 +1332,7 @@
           <h4>Navigation</h4>
           <ul>
             <li><a href="#start">Start</a></li>
-            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
             <li><a href="#ueber-uns">Über uns</a></li>
           </ul>

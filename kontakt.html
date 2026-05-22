@@ -203,11 +203,79 @@
 
     .menu-btn {
       display: none;
-      border: 0;
-      background: transparent;
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(36, 123, 145, 0.16);
+      border-radius: 16px;
+      background: linear-gradient(135deg, #ffffff, #eef8fa);
       color: var(--dark);
-      font-size: 30px;
       cursor: pointer;
+      box-shadow: 0 10px 24px rgba(29, 100, 118, 0.12);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(29, 100, 118, 0.16);
+    }
+
+    .menu-btn:active {
+      transform: scale(0.96);
+    }
+
+    .menu-icon,
+    .menu-icon::before,
+    .menu-icon::after {
+      position: absolute;
+      left: 50%;
+      width: 22px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--blue);
+      transform: translateX(-50%);
+      transition: transform 0.28s ease, opacity 0.2s ease, top 0.28s ease;
+    }
+
+    .menu-icon {
+      top: 50%;
+    }
+
+    .menu-icon::before,
+    .menu-icon::after {
+      content: "";
+    }
+
+    .menu-icon::before {
+      top: -7px;
+    }
+
+    .menu-icon::after {
+      top: 7px;
+    }
+
+    .menu-btn.is-open {
+      background: linear-gradient(135deg, var(--blue), #3a91a6);
+      box-shadow: 0 16px 34px rgba(36, 123, 145, 0.24);
+    }
+
+    .menu-btn.is-open .menu-icon {
+      background: transparent;
+    }
+
+    .menu-btn.is-open .menu-icon::before,
+    .menu-btn.is-open .menu-icon::after {
+      top: 0;
+      background: var(--white);
+    }
+
+    .menu-btn.is-open .menu-icon::before {
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    .menu-btn.is-open .menu-icon::after {
+      transform: translateX(-50%) rotate(-45deg);
     }
 
     .btn {
@@ -827,26 +895,55 @@
 
       nav {
         position: absolute;
-        top: 90px;
+        top: calc(100% + 10px);
         left: 18px;
         right: 18px;
-        display: none;
+        display: flex;
         flex-direction: column;
         align-items: stretch;
-        gap: 0;
-        padding: 12px;
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        background: var(--white);
-        box-shadow: var(--shadow);
+        gap: 6px;
+        max-height: 0;
+        padding: 0 12px;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-10px) scale(0.98);
+        pointer-events: none;
+        border: 1px solid rgba(223, 231, 234, 0.9);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 24px 55px rgba(29, 100, 118, 0.18);
+        transition:
+          max-height 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+          padding 0.28s ease,
+          opacity 0.24s ease,
+          transform 0.28s ease;
       }
 
       nav.open {
-        display: flex;
+        max-height: 430px;
+        padding: 12px;
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
       }
 
       nav a {
-        padding: 12px;
+        padding: 13px 14px;
+        border-radius: 14px;
+        color: var(--dark);
+        transition: background 0.22s ease, color 0.22s ease, transform 0.22s ease;
+      }
+
+      nav a::after {
+        display: none;
+      }
+
+      nav a:hover,
+      nav a.active {
+        background: linear-gradient(135deg, rgba(36, 123, 145, 0.10), rgba(36, 123, 145, 0.04));
+        color: var(--blue);
+        transform: translateX(3px);
       }
 
       .navbar > .btn {
@@ -1252,9 +1349,11 @@
         class="menu-btn"
         type="button"
         aria-label="Menü öffnen"
-        onclick="document.getElementById('menu').classList.toggle('open')"
+        aria-expanded="false"
+        aria-controls="menu"
+        onclick="toggleMenu(this)"
       >
-        ☰
+        <span class="menu-icon" aria-hidden="true"></span>
       </button>
     </div>
   </header>
@@ -1431,7 +1530,43 @@
 
 
   <script>
-    function toggleCustomObject(select) {
+    function toggleMenu(button) {
+      const menu = document.getElementById("menu");
+      const isOpen = menu.classList.toggle("open");
+
+      button.classList.toggle("is-open", isOpen);
+      button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      button.setAttribute("aria-label", isOpen ? "Menü schließen" : "Menü öffnen");
+    }
+
+    document.addEventListener("click", (event) => {
+      const menu = document.getElementById("menu");
+      const button = document.querySelector(".menu-btn");
+
+      if (!menu || !button || !menu.classList.contains("open")) return;
+      if (menu.contains(event.target) || button.contains(event.target)) return;
+
+      menu.classList.remove("open");
+      button.classList.remove("is-open");
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-label", "Menü öffnen");
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+
+      const menu = document.getElementById("menu");
+      const button = document.querySelector(".menu-btn");
+
+      if (!menu || !button) return;
+
+      menu.classList.remove("open");
+      button.classList.remove("is-open");
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-label", "Menü öffnen");
+    });
+
+        function toggleCustomObject(select) {
       const customField = document.getElementById("objectCustom");
       if (!customField) return;
 

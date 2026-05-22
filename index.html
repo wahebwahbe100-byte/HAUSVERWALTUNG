@@ -413,17 +413,35 @@
       background: transparent;
     }
 
+    .benefit-text {
+      flex: 1;
+      min-width: 0;
+    }
+
     .benefit h3 {
       margin-bottom: 10px;
       color: var(--dark);
       font-size: 20px;
       line-height: 1.25;
+      word-break: normal;
+      overflow-wrap: normal;
+      hyphens: none;
+    }
+
+
+
+    .benefit h3.small-title {
+      font-size: 17px;
+      letter-spacing: -0.02em;
     }
 
     .benefit p {
       color: #5f6b72;
       font-size: 15px;
       line-height: 1.75;
+      word-break: normal;
+      overflow-wrap: normal;
+      hyphens: none;
     }
 
     .request {
@@ -719,7 +737,6 @@
       }
 
       .benefit {
-        grid-template-columns: 58px 1fr;
         min-height: auto;
         padding: 26px 22px;
         border-right: 0;
@@ -902,26 +919,34 @@
         <div class="benefit-grid">
           <div class="benefit">
             <img class="benefit-thumb" src="assets/zuverlaessigkeit.png" alt="" />
-            <h3>Zuverlässigkeit</h3>
-            <p>Verbindliche Prozesse und klare Zuständigkeiten.</p>
+            <div class="benefit-text">
+              <h3>Zuverlässigkeit</h3>
+              <p>Verbindliche Prozesse und klare Zuständigkeiten.</p>
+            </div>
           </div>
 
           <div class="benefit">
             <img class="benefit-thumb" src="assets/ansprechpartner.png" alt="" />
-            <h3>Ansprechpartner</h3>
-            <p>Direkte Kommunikation und persönliche Betreuung.</p>
+            <div class="benefit-text">
+              <h3 class="small-title">Ansprechpartner</h3>
+              <p>Direkte Kommunikation und persönliche Betreuung.</p>
+            </div>
           </div>
 
           <div class="benefit">
             <img class="benefit-thumb" src="assets/transparenz.png" alt="" />
-            <h3>Transparenz</h3>
-            <p>Nachvollziehbare Abrechnungen und Dokumente.</p>
+            <div class="benefit-text">
+              <h3>Transparenz</h3>
+              <p>Nachvollziehbare Abrechnungen und Dokumente.</p>
+            </div>
           </div>
 
           <div class="benefit">
             <img class="benefit-thumb" src="assets/werterhalt.png" alt="" />
-            <h3>Werterhalt</h3>
-            <p>Vorausschauende Verwaltung Ihrer Immobilie.</p>
+            <div class="benefit-text">
+              <h3>Werterhalt</h3>
+              <p>Vorausschauende Verwaltung Ihrer Immobilie.</p>
+            </div>
           </div>
         </div>
       </div>

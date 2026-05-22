@@ -50,8 +50,8 @@
 
     @keyframes pageFadeIn {
       from {
-        opacity: 0;
-        transform: translateY(12px);
+        opacity: 0.94;
+        transform: translateY(4px);
       }
       to {
         opacity: 1;
@@ -60,13 +60,13 @@
     }
 
     body {
-      animation: pageFadeIn 0.9s ease both;
+      animation: pageFadeIn 0.28s ease-out both;
     }
 
     .smooth-reveal {
-      opacity: 0;
-      transform: translateY(34px);
-      transition: opacity 0.75s ease, transform 0.75s ease;
+      opacity: 0.96;
+      transform: translateY(8px);
+      transition: opacity 0.28s ease-out, transform 0.28s ease-out;
       will-change: opacity, transform;
     }
 
@@ -416,8 +416,8 @@
 
     .reveal-step {
       opacity: 0;
-      transform: translateY(26px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(10px);
+      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
     }
 
     .reveal-step.is-visible {
@@ -426,15 +426,15 @@
     }
 
     .reveal-step:nth-child(2) {
-      transition-delay: 0.18s;
+      transition-delay: 0.08s;
     }
 
     .reveal-step:nth-child(3) {
-      transition-delay: 0.36s;
+      transition-delay: 0.16s;
     }
 
     .reveal-step:nth-child(4) {
-      transition-delay: 0.54s;
+      transition-delay: 0.24s;
     }
 
     .benefits {
@@ -1519,14 +1519,14 @@
           });
         },
         {
-          threshold: 0.16,
-          rootMargin: "0px 0px -40px 0px"
+          threshold: 0.08,
+          rootMargin: "0px 0px -20px 0px"
         }
       );
 
       revealItems.forEach((item, index) => {
         item.classList.add("smooth-reveal");
-        item.style.transitionDelay = `${Math.min(index % 4, 3) * 0.09}s`;
+        item.style.transitionDelay = "0s";
         smoothObserver.observe(item);
       });
     }

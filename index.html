@@ -930,33 +930,49 @@
         height: 84px;
       }
 
-      .brand img {
-        width: 136px;
+      .navbar {
+        gap: 8px;
       }
 
       .brand {
-        gap: 10px;
+        flex: 1 1 auto;
         min-width: 0;
+        gap: 8px;
+      }
+
+      .brand img {
+        flex: 0 0 auto;
+        width: clamp(74px, 24vw, 96px);
       }
 
       .brand-text {
         display: block;
         min-width: 0;
+        max-width: calc(100vw - 150px);
+        overflow: hidden;
       }
 
       .brand-text strong {
-        font-size: 15px;
-        line-height: 1.05;
-        letter-spacing: 0.02em;
+        font-size: clamp(12px, 3.7vw, 15px);
+        line-height: 1.08;
+        letter-spacing: 0.01em;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .brand-text small {
         margin-top: 3px;
-        font-size: 8px;
-        line-height: 1.2;
-        letter-spacing: 0.04em;
+        font-size: clamp(7px, 2.15vw, 9px);
+        line-height: 1.25;
+        letter-spacing: 0.02em;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .menu-btn {
+        flex: 0 0 auto;
       }
 
       .container {

@@ -3,12 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leistungen | BHV Immobilienverwaltung GmbH</title>
-  <meta name="description" content="Leistungen der BHV Immobilienverwaltung GmbH: WEG-Verwaltung, Sondereigentumsverwaltung, Mietverwaltung, kaufmännische Betreuung, Beratung und Digitalisierung." />
+  <title>BHV Immobilienverwaltung GmbH</title>
+  <meta
+    name="description"
+    content="BHV Immobilienverwaltung GmbH – professionelle WEG-Verwaltung, Mietverwaltung und Sondereigentumsverwaltung."
+  />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-<style>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
     :root {
       --blue: #247b91;
       --blue-dark: #1d6476;
@@ -195,11 +203,79 @@
 
     .menu-btn {
       display: none;
-      border: 0;
-      background: transparent;
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(36, 123, 145, 0.16);
+      border-radius: 16px;
+      background: linear-gradient(135deg, #ffffff, #eef8fa);
       color: var(--dark);
-      font-size: 30px;
       cursor: pointer;
+      box-shadow: 0 10px 24px rgba(29, 100, 118, 0.12);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(29, 100, 118, 0.16);
+    }
+
+    .menu-btn:active {
+      transform: scale(0.96);
+    }
+
+    .menu-icon,
+    .menu-icon::before,
+    .menu-icon::after {
+      position: absolute;
+      left: 50%;
+      width: 22px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--blue);
+      transform: translateX(-50%);
+      transition: transform 0.28s ease, opacity 0.2s ease, top 0.28s ease;
+    }
+
+    .menu-icon {
+      top: 50%;
+    }
+
+    .menu-icon::before,
+    .menu-icon::after {
+      content: "";
+    }
+
+    .menu-icon::before {
+      top: -7px;
+    }
+
+    .menu-icon::after {
+      top: 7px;
+    }
+
+    .menu-btn.is-open {
+      background: linear-gradient(135deg, var(--blue), #3a91a6);
+      box-shadow: 0 16px 34px rgba(36, 123, 145, 0.24);
+    }
+
+    .menu-btn.is-open .menu-icon {
+      background: transparent;
+    }
+
+    .menu-btn.is-open .menu-icon::before,
+    .menu-btn.is-open .menu-icon::after {
+      top: 0;
+      background: var(--white);
+    }
+
+    .menu-btn.is-open .menu-icon::before {
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    .menu-btn.is-open .menu-icon::after {
+      transform: translateX(-50%) rotate(-45deg);
     }
 
     .btn {
@@ -244,10 +320,10 @@
       background:
         linear-gradient(
           90deg,
-          rgba(255, 255, 255, 0.86) 0%,
-          rgba(255, 255, 255, 0.68) 42%,
-          rgba(255, 255, 255, 0.20) 68%,
-          rgba(255, 255, 255, 0.04) 100%
+          rgba(255, 255, 255, 0.98) 0%,
+          rgba(255, 255, 255, 0.9) 42%,
+          rgba(255, 255, 255, 0.35) 68%,
+          rgba(255, 255, 255, 0.1) 100%
         ),
         url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80")
           center right / cover no-repeat;
@@ -259,8 +335,8 @@
       right: 0;
       bottom: 0;
       left: 0;
-      height: 90px;
-      background: linear-gradient(0deg, rgba(255, 255, 255, 0.88), transparent);
+      height: 130px;
+      background: linear-gradient(0deg, #ffffff, transparent);
     }
 
     .hero-content {
@@ -819,26 +895,55 @@
 
       nav {
         position: absolute;
-        top: 90px;
+        top: calc(100% + 10px);
         left: 18px;
         right: 18px;
-        display: none;
+        display: flex;
         flex-direction: column;
         align-items: stretch;
-        gap: 0;
-        padding: 12px;
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        background: var(--white);
-        box-shadow: var(--shadow);
+        gap: 6px;
+        max-height: 0;
+        padding: 0 12px;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-10px) scale(0.98);
+        pointer-events: none;
+        border: 1px solid rgba(223, 231, 234, 0.9);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 24px 55px rgba(29, 100, 118, 0.18);
+        transition:
+          max-height 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+          padding 0.28s ease,
+          opacity 0.24s ease,
+          transform 0.28s ease;
       }
 
       nav.open {
-        display: flex;
+        max-height: 430px;
+        padding: 12px;
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
       }
 
       nav a {
-        padding: 12px;
+        padding: 13px 14px;
+        border-radius: 14px;
+        color: var(--dark);
+        transition: background 0.22s ease, color 0.22s ease, transform 0.22s ease;
+      }
+
+      nav a::after {
+        display: none;
+      }
+
+      nav a:hover,
+      nav a.active {
+        background: linear-gradient(135deg, rgba(36, 123, 145, 0.10), rgba(36, 123, 145, 0.04));
+        color: var(--blue);
+        transform: translateX(3px);
       }
 
       .navbar > .btn {
@@ -914,65 +1019,15 @@
       }
 
       .hero {
-        min-height: calc(100svh - 76px);
-        align-items: center;
-        background-position: center;
-      }
-
-      .hero::after {
-        height: 100%;
-        background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.22) 100%);
-      }
-
-      .hero .container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: calc(100svh - 76px);
+        min-height: auto;
       }
 
       .hero-content {
-        width: 100%;
-        max-width: 390px;
-        margin: 0 auto;
-        padding: 74px 0 54px;
-        text-align: center;
-      }
-
-      .hero h1 {
-        max-width: 360px;
-        margin: 0 auto 18px;
-        font-size: clamp(38px, 10.8vw, 50px);
-        line-height: 0.98;
-        letter-spacing: -0.045em;
-      }
-
-      .hero h1 span {
-        margin-top: 4px;
-      }
-
-      .hero p {
-        max-width: 345px;
-        margin: 0 auto 28px;
-        font-size: 18px;
-        line-height: 1.65;
-        font-weight: 600;
-      }
-
-      .hero-actions {
-        justify-content: center;
-        gap: 14px;
+        padding: 62px 0;
       }
 
       .hero-actions .btn {
-        width: auto;
-        min-width: 190px;
-        border-radius: 999px;
-        padding: 15px 24px;
-      }
-
-      .hero-actions .btn-outline {
-        min-width: 164px;
+        width: 100%;
       }
 
       .cards,
@@ -1041,50 +1096,235 @@
         font-size: 34px;
       }
     }
+  
+
+    .contact-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 96px 0 82px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.97), rgba(255,255,255,0.86), rgba(255,255,255,0.58)),
+        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=80") center / cover no-repeat;
+    }
+
+    .contact-hero-content {
+      width: min(720px, 100%);
+    }
+
+    .contact-hero h1 {
+      margin-bottom: 18px;
+      color: var(--dark);
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.04;
+      letter-spacing: -0.05em;
+    }
+
+    .contact-hero h1 span {
+      color: var(--blue);
+    }
+
+    .contact-hero p {
+      max-width: 650px;
+      color: #394952;
+      font-size: 19px;
+    }
+
+    .contact-main {
+      background: linear-gradient(135deg, #ffffff 0%, #edf7f9 100%);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .contact-info-panel,
+    .contact-form-panel,
+    .contact-note {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-info-panel {
+      padding: 32px;
+    }
+
+    .contact-info-panel h2,
+    .contact-form-panel h2 {
+      margin-bottom: 12px;
+      color: var(--dark);
+      font-size: 30px;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+    }
+
+    .contact-info-panel > p {
+      margin-bottom: 24px;
+      color: #53616a;
+    }
+
+    .contact-methods {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .contact-method {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fbfdfe;
+    }
+
+    .contact-method b {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(36, 123, 145, 0.11);
+      color: var(--blue);
+      font-size: 20px;
+    }
+
+    .contact-method strong {
+      display: block;
+      color: var(--dark);
+      font-size: 16px;
+      line-height: 1.3;
+    }
+
+    .contact-method a,
+    .contact-method span {
+      color: #5f6b72;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .contact-note {
+      padding: 22px;
+      background: linear-gradient(135deg, var(--dark), #17232b);
+      color: var(--white);
+    }
+
+    .contact-note strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #9bd0dc;
+      font-size: 18px;
+    }
+
+    .contact-note p {
+      color: rgba(255,255,255,0.78);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .contact-form-panel {
+      padding: 32px;
+    }
+
+    .contact-form-panel > p {
+      margin-bottom: 22px;
+      color: #53616a;
+    }
+
+    .contact-page-form {
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      background: transparent;
+    }
+
+    .service-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .service-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 13px;
+      border: 1px solid #d4e0e4;
+      border-radius: 12px;
+      color: #34434c;
+      font-weight: 700;
+      cursor: pointer;
+      background: #fbfdfe;
+    }
+
+    .service-option input {
+      width: auto;
+      accent-color: var(--blue);
+    }
+
+    .contact-map {
+      padding-top: 0;
+      background: var(--white);
+    }
+
+    .map-card {
+      min-height: 280px;
+      display: grid;
+      place-items: center;
+      padding: 34px;
+      border: 1px dashed rgba(36, 123, 145, 0.35);
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(36, 123, 145, 0.08), rgba(255,255,255,0.92)),
+        repeating-linear-gradient(45deg, rgba(36,123,145,0.05) 0 12px, transparent 12px 24px);
+      text-align: center;
+    }
+
+    .map-card h2 {
+      margin-bottom: 10px;
+      color: var(--dark);
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -0.035em;
+    }
+
+    .map-card p {
+      max-width: 640px;
+      color: #53616a;
+    }
+
+    @media (max-width: 980px) {
+      .contact-layout,
+      .service-options {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .contact-hero {
+        padding: 64px 0 58px;
+      }
+
+      .contact-info-panel,
+      .contact-form-panel {
+        padding: 24px;
+      }
+    }
+
   </style>
-
-  <style>
-    .page-hero { min-height: 440px; display:flex; align-items:center; background: linear-gradient(90deg, rgba(255,255,255,.92), rgba(255,255,255,.62)), url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=80") center / cover no-repeat; }
-    .page-hero h1 { color: var(--dark); font-size: clamp(38px, 5vw, 68px); line-height:1.05; letter-spacing:-.05em; margin-bottom:18px; }
-    .page-hero p { max-width:720px; color:#394952; font-size:20px; }
-    .service-detail { padding: 78px 0; border-bottom:1px solid var(--border); }
-    .service-detail:nth-child(even) { background: var(--light); }
-    .service-layout { display:grid; grid-template-columns: .86fr 1.14fr; gap:46px; align-items:start; }
-    .service-kicker { color: var(--blue); font-weight:900; letter-spacing:.13em; text-transform:uppercase; font-size:13px; margin-bottom:10px; }
-    .service-title { color: var(--dark); font-size: clamp(28px, 3.4vw, 44px); line-height:1.12; letter-spacing:-.035em; margin-bottom:18px; }
-    .service-lead { color:#34434c; font-size:20px; line-height:1.6; font-weight:700; margin-bottom:18px; }
-    .service-text p { color:#53616a; margin-bottom:16px; }
-    .service-aside { background:#fff; border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:30px; position:sticky; top:116px; }
-    .service-aside h3 { color:var(--dark); margin-bottom:16px; font-size:22px; }
-    .check-list { display:grid; gap:12px; list-style:none; }
-    .check-list li { display:flex; gap:10px; color:#53616a; font-weight:600; }
-    .check-list li::before { content:'✓'; color:var(--blue); font-weight:900; }
-
-    .service-image-link { display:block; position:relative; overflow:hidden; margin:-10px -10px 24px; border-radius:18px; border:1px solid var(--border); background:var(--light); box-shadow:0 14px 34px rgba(29,100,118,.10); }
-    .service-image-link img { width:100%; height:220px; object-fit:cover; transition:transform .32s ease; }
-    .service-image-link span { position:absolute; left:16px; bottom:16px; display:inline-flex; align-items:center; gap:8px; padding:9px 13px; border-radius:999px; background:rgba(255,255,255,.92); color:var(--blue); font-size:13px; font-weight:900; box-shadow:0 10px 22px rgba(36,123,145,.16); }
-    .service-image-link:hover img { transform:scale(1.055); }
-    .service-image-link:hover span { color:var(--blue-dark); }
-    @media(max-width:620px){ .service-image-link img{height:190px;} }
-    .digital-section { background: linear-gradient(135deg, var(--dark), #17232b); color:var(--white); }
-    .digital-section .section-head h2, .digital-section .service-title { color: var(--white); }
-    .digital-section p { color: rgba(255,255,255,.76); }
-    .digital-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap:18px; margin-top:34px; }
-    .digital-card { border:1px solid rgba(255,255,255,.14); border-radius:var(--radius); padding:28px; background:rgba(255,255,255,.06); }
-    .digital-number { display:block; color:#9bd0dc; font-size:42px; font-weight:900; line-height:1; margin-bottom:18px; }
-    .digital-card h3 { color:var(--white); margin-bottom:10px; }
-    .cta-band { background: linear-gradient(135deg, #ffffff 0%, #edf7f9 100%); text-align:center; }
-    .cta-band h2 { color:var(--dark); font-size:clamp(30px,4vw,46px); line-height:1.15; margin-bottom:14px; }
-    .cta-band p { max-width:700px; margin:0 auto 26px; color:#53616a; font-size:18px; }
-    @media(max-width:980px){ .service-layout,.digital-grid{grid-template-columns:1fr;} .service-aside{position:static;} }
-  </style>
-
 </head>
 <body>
   <div class="topbar">
     <div class="container">
-      <span>✉ info@boehme-hv.de</span>
-      <span>☎ +4917610870618</span>
+      <span>✉ info@bhv-immobilienverwaltung.de</span>
+      <span>☎ 0176 1087 0618</span>
     </div>
   </div>
 
@@ -1093,206 +1333,301 @@
       <a class="brand" href="index.html#start" aria-label="BHV Immobilienverwaltung GmbH">
         <img src="assets/logo.png" alt="BHV Immobilienverwaltung GmbH Logo" />
       </a>
+
       <nav id="menu">
         <a href="index.html#start">Start</a>
-        <a class="active" href="leistungen.html">Leistungen</a>
+        <a href="index.html#leistungen">Leistungen</a>
         <a href="index.html#ablauf">Ablauf</a>
         <a href="index.html#vorteile">Vorteile</a>
-        <a href="kontakt.html">Kontakt</a>
+        <a class="active" href="#kontakt">Kontakt</a>
         <a href="index.html#ueber-uns">Über uns</a>
       </nav>
-      <a href="kontakt.html" class="btn btn-primary">Anfrage stellen</a>
-      <button class="menu-btn" type="button" aria-label="Menü öffnen" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+
+      <a href="#kontakt" class="btn btn-primary">Anfrage stellen</a>
+
+      <button
+        class="menu-btn"
+        type="button"
+        aria-label="Menü öffnen"
+        aria-expanded="false"
+        aria-controls="menu"
+        onclick="toggleMenu(this)"
+      >
+        <span class="menu-icon" aria-hidden="true"></span>
+      </button>
     </div>
   </header>
 
+  
   <main>
-    <section class="page-hero" id="leistungen">
+    <section class="contact-hero" id="kontakt">
       <div class="container">
-        <div class="hero-content smooth-reveal">
-          <p class="eyebrow">Unsere Leistungen</p>
-          <h1>Umfassende Verwaltung für Ihre Immobilie</h1>
-          <p>Von der WEG-Verwaltung über Miet- und Sondereigentumsverwaltung bis hin zu kaufmännischer Betreuung, Beratung und digitalen Unterlagen: Wir unterstützen Eigentümer strukturiert, transparent und persönlich.</p>
-          <div class="hero-actions" style="margin-top:30px;">
-            <a class="btn btn-primary" href="kontakt.html">Kontaktieren Sie uns</a>
-            <a class="btn btn-outline" href="#weg">Leistungen entdecken</a>
+        <div class="contact-hero-content soft-reveal is-visible">
+          <p class="eyebrow">Kontakt</p>
+          <h1>Wir freuen uns auf <span>Ihre Anfrage</span></h1>
+          <p>
+            Schreiben Sie uns kurz, um welche Immobilie es geht. Wir melden uns
+            schnellstmöglich bei Ihnen zurück und besprechen die nächsten Schritte persönlich.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-main">
+      <div class="container contact-layout">
+        <aside class="contact-info-panel">
+          <p class="eyebrow">BHV Immobilienverwaltung</p>
+          <h2>Direkt erreichbar</h2>
+          <p>
+            Für WEG-Verwaltung, Mietverwaltung und Sondereigentumsverwaltung stehen wir Ihnen
+            zuverlässig zur Seite.
+          </p>
+
+          <div class="contact-methods">
+            <div class="contact-method">
+              <b>✉</b>
+              <div>
+                <strong>E-Mail</strong>
+                <a href="mailto:info@bhv-immobilienverwaltung.de">info@bhv-immobilienverwaltung.de</a>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <b>☎</b>
+              <div>
+                <strong>Telefon</strong>
+                <a href="tel:+4917610870618">0176 1087 0618</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="service-detail" id="weg">
-      <div class="container service-layout">
-        <aside class="service-aside smooth-reveal">
-          <a class="service-image-link" href="kontakt.html" aria-label="Anfrage zur WEG-Verwaltung senden">
-            <img src="assets/weg.png" alt="WEG-Verwaltung" />
-            <span>Anfrage senden →</span>
-          </a>
-          <h3>WEG-Verwaltung</h3>
-          <ul class="check-list">
-            <li>Eigentümerversammlungen vorbereiten und begleiten</li>
-            <li>Beschlüsse umsetzen und dokumentieren</li>
-            <li>Wirtschaftspläne und Hausgeldabrechnungen</li>
-            <li>Erhaltungs- und Sanierungsmaßnahmen koordinieren</li>
-          </ul>
+          <div class="contact-note">
+            <strong>Schnelle Rückmeldung</strong>
+            <p>
+              Je genauer Ihre Angaben zur Immobilie sind, desto schneller können wir Ihren
+              Verwaltungsbedarf einschätzen und ein passendes Angebot vorbereiten.
+            </p>
+          </div>
         </aside>
-        <div class="service-text smooth-reveal">
-          <p class="service-kicker">01 / Gemeinschaftseigentum</p>
-          <h2 class="service-title">WEG-Verwaltung</h2>
-          <p class="service-lead">Wohnungseigentum ist komplex. Wir unterstützen Sie dabei, rechtliche, organisatorische und technische Aufgaben zuverlässig zu erfüllen.</p>
-          <p>Die Verwaltung einer Wohnungseigentümergemeinschaft erfordert Fachwissen, Erfahrung und eine klare Struktur. BHV übernimmt die laufende Organisation, hält Fristen im Blick und sorgt dafür, dass Eigentümer jederzeit nachvollziehen können, was im Objekt passiert.</p>
-          <p>Wir kümmern uns um die Vorbereitung und Durchführung von Eigentümerversammlungen, die Umsetzung gefasster Beschlüsse, die Abstimmung mit Dienstleistern sowie die Planung, Vergabe und Überwachung notwendiger Erhaltungs- und Sanierungsarbeiten.</p>
-          <p>Unser Anspruch ist eine transparente und effiziente Verwaltung, die den Wert Ihrer Immobilie langfristig sichert und Eigentümer spürbar entlastet.</p>
-          <a class="more" href="kontakt.html">Kontaktieren Sie uns →</a>
+
+        <div class="contact-form-panel">
+          <p class="eyebrow">Anfrage senden</p>
+          <h2>Unverbindliches Angebot anfordern</h2>
+          <p>
+            Füllen Sie das Formular aus. Beim Absenden wird Ihre E-Mail-App mit allen Angaben geöffnet.
+          </p>
+
+          <form class="contact-page-form" onsubmit="sendMail(event)">
+            <div class="form-grid">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" placeholder="Ihr Name" required />
+              </div>
+
+              <div>
+                <label for="email">E-Mail</label>
+                <input id="email" name="email" type="email" placeholder="Ihre E-Mail-Adresse" required />
+              </div>
+
+              <div>
+                <label for="phone">Telefon</label>
+                <input id="phone" name="phone" type="tel" placeholder="Telefonnummer" />
+              </div>
+
+              <div>
+                <label for="units">Einheiten</label>
+                <input id="units" name="units" type="number" min="1" placeholder="z. B. 12" />
+              </div>
+
+              <div class="full">
+                <label for="object">Objekt / Ort</label>
+                <select id="object" name="object" onchange="toggleCustomObject(this)">
+                  <option value="" selected disabled>z. B.</option>
+                  <option value="1 Objekt">1 Objekt</option>
+                  <option value="2 Objekte">2 Objekte</option>
+                  <option value="3 Objekte">3 Objekte</option>
+                  <option value="4 Objekte">4 Objekte</option>
+                  <option value="5+ Objekte">5+ Objekte</option>
+                  <option value="Sonstiges">Sonstiges / Eigene Eingabe</option>
+                </select>
+                <input
+                  class="custom-object-field"
+                  id="objectCustom"
+                  name="objectCustom"
+                  placeholder="Eigene Angabe schreiben..."
+                  style="display: none; margin-top: 12px;"
+                />
+              </div>
+
+              <div class="full">
+                <label>Gewünschte Leistung</label>
+                <div class="service-options">
+                  <label class="service-option"><input type="checkbox" name="services" value="WEG-Verwaltung" /> WEG-Verwaltung</label>
+                  <label class="service-option"><input type="checkbox" name="services" value="Mietverwaltung" /> Mietverwaltung</label>
+                  <label class="service-option"><input type="checkbox" name="services" value="Sondereigentumsverwaltung" /> Sondereigentumsverwaltung</label>
+                </div>
+              </div>
+
+              <div class="full">
+                <label for="message">Nachricht</label>
+                <textarea id="message" name="message" placeholder="Beschreiben Sie kurz Ihr Anliegen..."></textarea>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Anfrage per E-Mail senden →</button>
+          </form>
         </div>
       </div>
     </section>
 
-    <section class="service-detail" id="sondereigentum">
-      <div class="container service-layout">
-        <aside class="service-aside smooth-reveal">
-          <a class="service-image-link" href="kontakt.html" aria-label="Anfrage zur Sondereigentumsverwaltung senden">
-            <img src="assets/sondereigentum.png" alt="Sondereigentumsverwaltung" />
-            <span>Anfrage senden →</span>
-          </a>
-          <h3>Sondereigentumsverwaltung</h3>
-          <ul class="check-list">
-            <li>Betreuung einzelner Wohnungen oder Gewerbeeinheiten</li>
-            <li>Kommunikation mit Mietern und Eigentümern</li>
-            <li>Kontrolle von Zahlungen und Unterlagen</li>
-            <li>Objektnahe Betreuung durch vertraute Verwaltung</li>
-          </ul>
-        </aside>
-        <div class="service-text smooth-reveal">
-          <p class="service-kicker">02 / Einzelne Einheiten</p>
-          <h2 class="service-title">Sondereigentumsverwaltung</h2>
-          <p class="service-lead">Die Verwaltung von Sonder- oder Teileigentum ist besonders sinnvoll, wenn einzelne Wohnungen oder Gewerbeeinheiten professionell betreut werden sollen.</p>
-          <p>Bei der Sondereigentumsverwaltung konzentrieren wir uns auf die Belange der einzelnen Einheit. Dazu gehören die Kommunikation mit Mietern, die laufende Kontrolle relevanter Vorgänge und die zuverlässige Information des Eigentümers.</p>
-          <p>Ein großer Vorteil entsteht, wenn WEG-Verwaltung und Sondereigentumsverwaltung aus einer Hand erfolgen: Die Verwaltung kennt das Objekt, die Abläufe und die technischen Gegebenheiten bereits. Dadurch können Anliegen schneller eingeordnet und effizienter bearbeitet werden.</p>
-          <a class="more" href="kontakt.html">Kontaktieren Sie uns →</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="service-detail" id="mietverwaltung">
-      <div class="container service-layout">
-        <aside class="service-aside smooth-reveal">
-          <a class="service-image-link" href="kontakt.html" aria-label="Anfrage zur Mietverwaltung senden">
-            <img src="assets/mietverwaltung.png" alt="Mietverwaltung" />
-            <span>Anfrage senden →</span>
-          </a>
-          <h3>Mietverwaltung</h3>
-          <ul class="check-list">
-            <li>Mieterkommunikation und Vertragsmanagement</li>
-            <li>Mietzahlungen und Betriebskostenabrechnungen</li>
-            <li>Koordination von Instandhaltung</li>
-            <li>Kaufmännische und technische Betreuung</li>
-          </ul>
-        </aside>
-        <div class="service-text smooth-reveal">
-          <p class="service-kicker">03 / Vermietete Objekte</p>
-          <h2 class="service-title">Mietverwaltung</h2>
-          <p class="service-lead">Wir betreuen vermietete Immobilien kaufmännisch und technisch, damit Eigentümer entlastet werden und der laufende Betrieb stabil bleibt.</p>
-          <p>Als Mietverwalter übernehmen wir je nach Vereinbarung die Kommunikation mit Mietern, die Überwachung von Mietzahlungen, die Vorbereitung von Abrechnungen sowie die Abstimmung von Reparaturen und Instandhaltungsmaßnahmen.</p>
-          <p>Im Gegensatz zur WEG-Verwaltung entfallen Eigentümerversammlungen; dafür liegt der Fokus stärker auf den Mietverhältnissen, der Abwicklung laufender Anliegen und der Abstimmung mit dem Eigentümer. Der Arbeitsaufwand kann dennoch vergleichbar sein, weil viele Vorgänge kontinuierlich betreut werden müssen.</p>
-          <p>Ziel ist eine verlässliche Verwaltung, die Einnahmen sichert, Überraschungen reduziert und den Zustand Ihrer Immobilie im Blick behält.</p>
-          <a class="more" href="kontakt.html">Kontaktieren Sie uns →</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="service-detail" id="kaufmaennisch">
-      <div class="container service-layout">
-        <aside class="service-aside smooth-reveal">
-          <h3>Kaufmännische Betreuung</h3>
-          <ul class="check-list">
-            <li>Abrechnungen und Zahlungsüberwachung</li>
-            <li>Budgetplanung und Dokumentation</li>
-            <li>Unterstützung bei rechtlichen und steuerlichen Themen</li>
-            <li>Separat oder ergänzend zur Verwaltung buchbar</li>
-          </ul>
-        </aside>
-        <div class="service-text smooth-reveal">
-          <p class="service-kicker">04 / Zahlen & Dokumente</p>
-          <h2 class="service-title">Kaufmännische Betreuung</h2>
-          <p class="service-lead">Sie möchten technische Aufgaben oder den direkten Mieterkontakt selbst behalten, aber die kaufmännischen Themen professionell betreuen lassen?</p>
-          <p>Wir unterstützen Eigentümer bei den wirtschaftlichen und organisatorischen Aufgaben rund um die Immobilie. Dazu zählen übersichtliche Abrechnungen, nachvollziehbare Dokumentation, Zahlungsüberwachung und eine strukturierte Aufbereitung relevanter Unterlagen.</p>
-          <p>Die kaufmännische Betreuung kann Bestandteil einer umfassenden Verwaltung sein oder separat in Anspruch genommen werden. So bleiben Sie flexibel und geben genau die Aufgaben ab, bei denen Sie Entlastung wünschen.</p>
-          <a class="more" href="kontakt.html">Kontaktieren Sie uns →</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="service-detail" id="beratung">
-      <div class="container service-layout">
-        <aside class="service-aside smooth-reveal">
-          <h3>Beratung</h3>
-          <ul class="check-list">
-            <li>Beratung zu Verwaltungs- und Objektfragen</li>
-            <li>Unterstützung bei Dienstleister- und Wartungsverträgen</li>
-            <li>Prüfung organisatorischer Abläufe</li>
-            <li>Praxisnahe Empfehlungen für Eigentümer</li>
-          </ul>
-        </aside>
-        <div class="service-text smooth-reveal">
-          <p class="service-kicker">05 / Erfahrung nutzen</p>
-          <h2 class="service-title">Beratung</h2>
-          <p class="service-lead">Auch über die laufende Verwaltung hinaus beraten wir Sie bei Fragen zur Immobilie, zu Verträgen und zu sinnvollen nächsten Schritten.</p>
-          <p>Eigentümer stehen regelmäßig vor Entscheidungen, die rechtliche, kaufmännische und technische Aspekte verbinden. Wir helfen dabei, diese Themen verständlich einzuordnen und praktikable Lösungen zu finden.</p>
-          <p>Auf Wunsch begleiten wir Sie bei der Abstimmung mit Dienstleistern, bei der Vorbereitung von Verträgen oder bei Fragen zu gesetzlichen Anforderungen, technischen Maßnahmen und langfristiger Objektstrategie.</p>
-          <a class="more" href="kontakt.html">Kontaktieren Sie uns →</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="digital-section" id="digitalisieren">
-      <div class="container">
-        <div class="section-head smooth-reveal">
-          <p class="eyebrow">Digitalisieren</p>
-          <h2>Moderne Unterlagenverwaltung</h2>
-          <div class="line"></div>
-          <p style="max-width:780px;margin:22px auto 0;">Wir setzen auf strukturierte, papierarme Prozesse. Unterlagen können digitalisiert, geordnet und in einem Onlinearchiv verfügbar gemacht werden, damit wichtige Dokumente schnell auffindbar bleiben.</p>
-        </div>
-        <div class="digital-grid">
-          <div class="digital-card smooth-reveal"><span class="digital-number">01</span><h3>Digitaler Posteingang</h3><p>Eingehende Schreiben werden strukturiert erfasst, zugeordnet und digital bereitgestellt.</p></div>
-          <div class="digital-card smooth-reveal"><span class="digital-number">02</span><h3>Onlinearchiv</h3><p>Wichtige Unterlagen können zentral gespeichert werden, damit Eigentümer jederzeit den Überblick behalten.</p></div>
-          <div class="digital-card smooth-reveal"><span class="digital-number">03</span><h3>Bestandsakten</h3><p>Vorhandene Ordner und Dokumente können nach und nach in die digitale Ablage integriert werden.</p></div>
-          <div class="digital-card smooth-reveal"><span class="digital-number">04</span><h3>Aktenlagerung</h3><p>Falls Papierunterlagen weiterhin benötigt werden, bleibt eine geordnete physische Ablage möglich.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-band">
-      <div class="container smooth-reveal">
-        <h2>Sie suchen eine zuverlässige Verwaltung?</h2>
-        <p>Senden Sie uns die wichtigsten Informationen zu Ihrer Immobilie. Wir melden uns mit einer passenden Einschätzung und einem transparenten Angebot.</p>
-        <a class="btn btn-primary" href="kontakt.html">Jetzt Anfrage stellen</a>
-      </div>
-    </section>
   </main>
-
   <footer>
     <div class="container">
       <div class="footer-grid">
-        <div><img src="assets/logo.png" alt="BHV Logo" /><p>BHV Immobilienverwaltung GmbH – zuverlässig, transparent und persönlich.</p></div>
-        <div><h4>Navigation</h4><ul><li><a href="index.html#start">Start</a></li><li><a href="leistungen.html">Leistungen</a></li><li><a href="kontakt.html">Kontakt</a></li><li><a href="index.html#ueber-uns">Über uns</a></li></ul></div>
-        <div><h4>Leistungen</h4><ul><li><a href="#weg">WEG-Verwaltung</a></li><li><a href="#mietverwaltung">Mietverwaltung</a></li><li><a href="#sondereigentum">Sondereigentum</a></li><li><a href="#beratung">Beratung</a></li></ul></div>
-        <div><h4>Kontakt</h4><ul><li><a href="mailto:info@boehme-hv.de">info@boehme-hv.de</a></li><li><a href="tel:+4917610870618">+4917610870618</a></li></ul></div>
+        <div>
+          <img src="assets/logo.png" alt="BHV Logo" />
+          <p>BHV Immobilienverwaltung GmbH – zuverlässig, transparent und persönlich.</p>
+        </div>
+
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html#start">Start</a></li>
+            <li><a href="index.html#leistungen">Leistungen</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="index.html#ueber-uns">Über uns</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Leistungen</h4>
+          <ul>
+            <li>WEG-Verwaltung</li>
+            <li>Mietverwaltung</li>
+            <li>Sondereigentum</li>
+            <li>Objektbetreuung</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Kontakt</h4>
+          <ul>
+            <li>
+              <a href="mailto:info@bhv-immobilienverwaltung.de">
+                info@bhv-immobilienverwaltung.de
+              </a>
+            </li>
+            <li><a href="tel:+4917610870618">0176 1087 0618</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="copyright">© 2026 BHV Immobilienverwaltung GmbH. Alle Rechte vorbehalten.</div>
+
+      <div class="copyright">
+        © 2026 BHV Immobilienverwaltung GmbH. Alle Rechte vorbehalten.
+      </div>
     </div>
   </footer>
 
+
   <script>
-    function smoothRevealSite() {
-      const revealItems = document.querySelectorAll('.smooth-reveal');
-      if (!revealItems.length) return;
-      const smoothObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } });
-      }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
-      revealItems.forEach((item) => smoothObserver.observe(item));
+    function toggleMenu(button) {
+      const menu = document.getElementById("menu");
+      const isOpen = menu.classList.toggle("open");
+
+      button.classList.toggle("is-open", isOpen);
+      button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      button.setAttribute("aria-label", isOpen ? "Menü schließen" : "Menü öffnen");
     }
-    smoothRevealSite();
+
+    document.addEventListener("click", (event) => {
+      const menu = document.getElementById("menu");
+      const button = document.querySelector(".menu-btn");
+
+      if (!menu || !button || !menu.classList.contains("open")) return;
+      if (menu.contains(event.target) || button.contains(event.target)) return;
+
+      menu.classList.remove("open");
+      button.classList.remove("is-open");
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-label", "Menü öffnen");
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+
+      const menu = document.getElementById("menu");
+      const button = document.querySelector(".menu-btn");
+
+      if (!menu || !button) return;
+
+      menu.classList.remove("open");
+      button.classList.remove("is-open");
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-label", "Menü öffnen");
+    });
+
+        function toggleCustomObject(select) {
+      const customField = document.getElementById("objectCustom");
+      if (!customField) return;
+
+      if (select.value === "Sonstiges") {
+        customField.style.display = "block";
+        customField.focus();
+      } else {
+        customField.style.display = "none";
+        customField.value = "";
+      }
+    }
+
+    function sendMail(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const services = Array.from(form.querySelectorAll('input[name="services"]:checked'))
+        .map((input) => input.value)
+        .join(', ');
+
+      const objectValue = form.object.value === "Sonstiges"
+        ? (form.objectCustom.value || "Sonstiges")
+        : form.object.value;
+
+      const subject = encodeURIComponent("Neue Kontaktanfrage über die BHV Website");
+      const body = encodeURIComponent(
+        `Name: ${form.name.value}\n` +
+        `E-Mail: ${form.email.value}\n` +
+        `Telefon: ${form.phone.value}\n` +
+        `Objekt / Ort: ${objectValue || 'Keine Auswahl'}\n` +
+        `Einheiten: ${form.units.value}\n` +
+        `Gewünschte Leistungen: ${services || 'Keine Auswahl'}\n\n` +
+        `Nachricht:\n${form.message.value}`
+      );
+
+      window.location.href =
+        `mailto:info@bhv-immobilienverwaltung.de?subject=${subject}&body=${body}`;
+    }
+
+    function revealPage() {
+      document.body.classList.add("page-ready");
+
+      const items = document.querySelectorAll("section, .contact-method, .contact-form-panel, .contact-note, footer");
+      items.forEach((item) => item.classList.add("soft-reveal"));
+
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      items.forEach((item) => observer.observe(item));
+    }
+
+    revealPage();
   </script>
 </body>
 </html>

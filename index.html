@@ -368,6 +368,30 @@
       color: var(--dark);
     }
 
+
+    .reveal-step {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal-step.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-step:nth-child(2) {
+      transition-delay: 0.18s;
+    }
+
+    .reveal-step:nth-child(3) {
+      transition-delay: 0.36s;
+    }
+
+    .reveal-step:nth-child(4) {
+      transition-delay: 0.54s;
+    }
+
     .benefits {
       background: var(--light);
     }
@@ -1122,27 +1146,27 @@
         </div>
 
         <div class="process-grid">
-          <div class="step">
+          <div class="step reveal-step">
             <img class="step-icon" src="assets/anfrage.png" alt="" />
-            <h3>Anfrage</h3>
+            <h3>1. Anfrage</h3>
             <p>Sie senden uns die wichtigsten Informationen zu Ihrer Immobilie.</p>
           </div>
 
-          <div class="step">
+          <div class="step reveal-step">
             <img class="step-icon" src="assets/analyse.png" alt="" />
-            <h3>Analyse</h3>
+            <h3>2. Analyse</h3>
             <p>Wir prüfen Objekt, Anforderungen und Verwaltungsbedarf.</p>
           </div>
 
-          <div class="step">
+          <div class="step reveal-step">
             <img class="step-icon" src="assets/angebot.png" alt="" />
-            <h3>Angebot</h3>
+            <h3>3. Angebot</h3>
             <p>Sie erhalten ein transparentes, unverbindliches Angebot.</p>
           </div>
 
-          <div class="step">
+          <div class="step reveal-step">
             <img class="step-icon" src="assets/start.png" alt="" />
-            <h3>Start</h3>
+            <h3>4. Start</h3>
             <p>Nach Beauftragung übernehmen wir strukturiert die Verwaltung.</p>
           </div>
         </div>
@@ -1409,6 +1433,31 @@
 
       counterObserver.observe(trustStrip);
     }
+
+
+    function revealProcessSteps() {
+      const revealSteps = document.querySelectorAll(".reveal-step");
+
+      if (!revealSteps.length) return;
+
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.28
+        }
+      );
+
+      revealSteps.forEach((step) => revealObserver.observe(step));
+    }
+
+    revealProcessSteps();
   </script>
 </body>
 </html>

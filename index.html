@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet"
   />
 
@@ -45,6 +45,51 @@
       color: var(--text);
       background: var(--white);
       line-height: 1.65;
+    }
+
+
+    @keyframes pageFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    body {
+      animation: pageFadeIn 0.9s ease both;
+    }
+
+    .smooth-reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+      will-change: opacity, transform;
+    }
+
+    .smooth-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .smooth-reveal,
+      .reveal-step {
+        opacity: 1 !important;
+        transform: none !important;
+      }
     }
 
     a {
@@ -674,11 +719,14 @@
 
     .about-signature {
       display: inline-block;
-      margin-top: 12px;
+      margin-top: 14px;
       color: var(--blue);
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: 0.08em;
+      font-family: "Great Vibes", cursive;
+      font-size: 48px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      text-transform: none;
     }
 
     .about-contact {
@@ -967,10 +1015,6 @@
     <div class="container navbar">
       <a class="brand" href="#start" aria-label="BHV Immobilienverwaltung GmbH">
         <img src="assets/logo.png" alt="BHV Immobilienverwaltung GmbH Logo" />
-        <span class="brand-text">
-          <strong>BHV</strong>
-          <small>Immobilienverwaltung GmbH</small>
-        </span>
       </a>
 
       <nav id="menu">
@@ -1295,7 +1339,7 @@
                 Mieter ernst nimmt und Entscheidungen nachvollziehbar macht.
               </p>
 
-              <span class="about-signature">BHV</span>
+              <span class="about-signature">BHV Böhme</span>
             </div>
           </div>
 
@@ -1456,6 +1500,38 @@
 
       revealSteps.forEach((step) => revealObserver.observe(step));
     }
+
+
+    function smoothRevealSite() {
+      const revealItems = document.querySelectorAll(
+        ".hero-content, .section-head, .card, .benefit, .trust-item, .request-text, form, .about-panel, footer"
+      );
+
+      if (!revealItems.length) return;
+
+      const smoothObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.16,
+          rootMargin: "0px 0px -40px 0px"
+        }
+      );
+
+      revealItems.forEach((item, index) => {
+        item.classList.add("smooth-reveal");
+        item.style.transitionDelay = `${Math.min(index % 4, 3) * 0.09}s`;
+        smoothObserver.observe(item);
+      });
+    }
+
+    smoothRevealSite();
 
     revealProcessSteps();
   </script>

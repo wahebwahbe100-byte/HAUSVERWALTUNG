@@ -1971,6 +1971,33 @@
     }
   </style>
 
+
+  <style>
+    /* Smooth scroll reveal enhancement */
+    .smooth-reveal,
+    .soft-reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      will-change: opacity, transform;
+    }
+
+    .smooth-reveal.is-visible,
+    .soft-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .smooth-reveal,
+      .soft-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+
 </head>
 <body>
   <div class="topbar">

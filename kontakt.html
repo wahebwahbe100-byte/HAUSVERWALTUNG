@@ -884,6 +884,24 @@
       text-align: center;
     }
 
+    .footer-legal-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal-links a {
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .footer-legal-links a:hover {
+      color: #ffffff;
+    }
+
     @media (max-width: 980px) {
       .topbar .container {
         justify-content: center;
@@ -1969,6 +1987,171 @@
         font-size: 12.5px;
       }
     }
+
+    /* Extra compact, clean checkbox cards for phones and all screen sizes */
+    .service-options {
+      gap: 8px;
+    }
+
+    .service-option {
+      position: relative;
+      display: flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 8px 10px 8px 34px;
+      border-radius: 11px;
+      font-size: 13px;
+      line-height: 1.25;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    .service-option input {
+      position: absolute;
+      left: 11px;
+      top: 50%;
+      width: 15px;
+      height: 15px;
+      margin: 0;
+      transform: translateY(-50%);
+      appearance: none;
+      -webkit-appearance: none;
+      border: 1.6px solid #9cccf4;
+      border-radius: 4px;
+      background: #ffffff;
+      box-shadow: inset 0 1px 2px rgba(3, 26, 91, 0.06);
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .service-option input:checked {
+      border-color: var(--blue);
+      background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+      box-shadow: 0 4px 10px rgba(0, 114, 213, 0.18);
+    }
+
+    .service-option input:checked::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 1px;
+      width: 4px;
+      height: 8px;
+      border: solid #ffffff;
+      border-width: 0 1.8px 1.8px 0;
+      transform: rotate(45deg);
+    }
+
+    .service-option:has(input:checked) {
+      border-color: rgba(0, 114, 213, 0.48);
+      background: linear-gradient(135deg, rgba(0, 114, 213, 0.09), rgba(86, 194, 255, 0.10));
+      box-shadow: 0 6px 14px rgba(0, 80, 178, 0.075);
+    }
+
+    .service-option:focus-within {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 2px rgba(0, 114, 213, 0.10);
+    }
+
+    .privacy-consent {
+      grid-template-columns: 18px 1fr;
+      gap: 8px;
+      align-items: start;
+      margin-top: 14px;
+      padding: 10px 11px;
+      border-radius: 11px;
+    }
+
+    .privacy-consent input {
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+      appearance: none;
+      -webkit-appearance: none;
+      border: 1.6px solid #9cccf4;
+      border-radius: 4px;
+      background: #ffffff;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .privacy-consent input:checked {
+      border-color: var(--blue);
+      background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+      box-shadow: 0 4px 10px rgba(0, 114, 213, 0.16);
+    }
+
+    .privacy-consent input:checked::after {
+      content: "";
+      display: block;
+      width: 4px;
+      height: 8px;
+      margin: 1px 0 0 5px;
+      border: solid #ffffff;
+      border-width: 0 1.8px 1.8px 0;
+      transform: rotate(45deg);
+    }
+
+    .privacy-consent label {
+      font-size: 12px;
+      line-height: 1.42;
+    }
+
+    .privacy-consent small {
+      margin-top: 3px;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .privacy-consent:focus-within {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 2px rgba(0, 114, 213, 0.08);
+    }
+
+    @media (max-width: 620px) {
+      .service-options {
+        gap: 7px;
+      }
+
+      .service-option {
+        min-height: 38px;
+        padding: 7px 9px 7px 32px;
+        font-size: 12.5px;
+        border-radius: 10px;
+      }
+
+      .service-option input {
+        left: 10px;
+        width: 14px;
+        height: 14px;
+      }
+
+      .service-option input:checked::after {
+        left: 3.5px;
+        top: 0.8px;
+        width: 4px;
+        height: 7px;
+      }
+
+      .privacy-consent {
+        grid-template-columns: 17px 1fr;
+        gap: 7px;
+        padding: 9px 10px;
+        border-radius: 10px;
+      }
+
+      .privacy-consent input {
+        width: 15px;
+        height: 15px;
+        margin-top: 2px;
+      }
+
+      .privacy-consent input:checked::after {
+        width: 4px;
+        height: 7px;
+        margin: 1px 0 0 4px;
+      }
+    }
   </style>
 
 
@@ -1994,6 +2177,114 @@
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* Final checkbox style: simple small default squares like the reference image */
+    .service-option {
+      align-items: center !important;
+      min-height: 36px !important;
+      padding: 7px 10px !important;
+      gap: 8px !important;
+      font-size: 13px !important;
+      line-height: 1.25 !important;
+      border-radius: 10px !important;
+    }
+
+    .service-option input,
+    .privacy-consent input {
+      position: static !important;
+      appearance: auto !important;
+      -webkit-appearance: checkbox !important;
+      width: 14px !important;
+      height: 14px !important;
+      min-width: 14px !important;
+      min-height: 14px !important;
+      margin: 0 !important;
+      border: initial !important;
+      border-radius: initial !important;
+      background: initial !important;
+      box-shadow: none !important;
+      transform: none !important;
+      accent-color: var(--blue);
+      cursor: pointer;
+    }
+
+    .service-option input:checked,
+    .privacy-consent input:checked {
+      background: initial !important;
+      border-color: initial !important;
+      box-shadow: none !important;
+    }
+
+    .service-option input:checked::after,
+    .privacy-consent input:checked::after {
+      content: none !important;
+      display: none !important;
+    }
+
+    .privacy-consent {
+      grid-template-columns: 14px 1fr !important;
+      gap: 8px !important;
+      padding: 10px 11px !important;
+      border-radius: 10px !important;
+    }
+
+    @media (max-width: 620px) {
+      .service-option {
+        min-height: 34px !important;
+        padding: 6px 9px !important;
+        gap: 7px !important;
+        font-size: 12.5px !important;
+      }
+
+      .service-option input,
+      .privacy-consent input {
+        width: 13px !important;
+        height: 13px !important;
+        min-width: 13px !important;
+        min-height: 13px !important;
+      }
+
+      .privacy-consent {
+        grid-template-columns: 13px 1fr !important;
+        padding: 9px 10px !important;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* Fix service checkboxes: give the long German word enough room */
+    .service-options {
+      grid-template-columns: minmax(150px, 1fr) minmax(240px, 1.65fr) minmax(145px, 1fr) !important;
+      align-items: stretch !important;
+      overflow: visible !important;
+    }
+
+    .service-option {
+      width: 100% !important;
+      min-width: 0 !important;
+      white-space: nowrap !important;
+      overflow: visible !important;
+      font-size: 12.5px !important;
+      letter-spacing: -0.01em !important;
+    }
+
+    .service-option input {
+      flex: 0 0 13px !important;
+    }
+
+    @media (max-width: 760px) {
+      .service-options {
+        grid-template-columns: 1fr !important;
+      }
+
+      .service-option {
+        white-space: normal !important;
       }
     }
   </style>
@@ -2124,21 +2415,12 @@
 
               <div class="full">
                 <label for="object">Objekt / Ort</label>
-                <select id="object" name="object" onchange="toggleCustomObject(this)">
-                  <option value="" selected disabled>Bitte auswählen</option>
-                  <option value="1 Objekt">1 Objekt</option>
-                  <option value="2 Objekte">2 Objekte</option>
-                  <option value="3 Objekte">3 Objekte</option>
-                  <option value="4 Objekte">4 Objekte</option>
-                  <option value="5+ Objekte">5+ Objekte</option>
-                  <option value="Sonstiges">Sonstiges / Eigene Eingabe</option>
-                </select>
                 <input
-                  class="custom-object-field"
-                  id="objectCustom"
-                  name="objectCustom"
-                  placeholder="Eigene Angabe schreiben..."
-                  style="display: none; margin-top: 12px;"
+                  id="object"
+                  name="object"
+                  type="text"
+                  placeholder="Adresse / Ort der Immobilie eingeben"
+                  autocomplete="street-address"
                 />
               </div>
 
@@ -2215,6 +2497,10 @@
 
       <div class="copyright">
         © 2026 BHV Immobilienverwaltung GmbH. Alle Rechte vorbehalten.
+        <div class="footer-legal-links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -2257,19 +2543,6 @@
       button.setAttribute("aria-label", "Menü öffnen");
     });
 
-        function toggleCustomObject(select) {
-      const customField = document.getElementById("objectCustom");
-      if (!customField) return;
-
-      if (select.value === "Sonstiges") {
-        customField.style.display = "block";
-        customField.focus();
-      } else {
-        customField.style.display = "none";
-        customField.value = "";
-      }
-    }
-
     function sendMail(event) {
       event.preventDefault();
 
@@ -2284,9 +2557,7 @@
         .map((input) => input.value)
         .join(', ');
 
-      const objectValue = form.object.value === "Sonstiges"
-        ? (form.objectCustom.value || "Sonstiges")
-        : form.object.value;
+      const objectValue = form.object.value.trim();
 
       const subject = encodeURIComponent("Neue Kontaktanfrage über die BHV Website");
       const body = encodeURIComponent(

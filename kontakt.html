@@ -2319,6 +2319,360 @@
     }
   </style>
 
+
+
+  <style>
+    /* ===== HEADER MATCH INDEX(36): same bar, logo size, text size, menu spacing ===== */
+    header {
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 99 !important;
+      background: rgba(255, 255, 255, 0.95) !important;
+      backdrop-filter: blur(14px) !important;
+      border-bottom: 1px solid rgba(223, 231, 234, 0.9) !important;
+      box-shadow: none !important;
+    }
+
+    .navbar {
+      height: 88px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 24px !important;
+    }
+
+    .brand {
+      display: flex !important;
+      align-items: center !important;
+      gap: 14px !important;
+      min-width: 0 !important;
+    }
+
+    .brand img {
+      display: block !important;
+      width: 126px !important;
+      height: auto !important;
+      max-width: 100% !important;
+      flex: 0 0 auto !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+    }
+
+    .brand-text {
+      min-width: 0 !important;
+    }
+
+    .brand-text strong {
+      display: block !important;
+      color: var(--dark) !important;
+      font-family: Inter, Arial, sans-serif !important;
+      font-size: 20px !important;
+      font-style: normal !important;
+      font-weight: 700 !important;
+      line-height: 1 !important;
+      letter-spacing: 0.04em !important;
+      white-space: nowrap !important;
+    }
+
+    .brand-text small {
+      display: block !important;
+      margin-top: 5px !important;
+      color: var(--blue) !important;
+      font-family: Inter, Arial, sans-serif !important;
+      font-size: 12px !important;
+      font-style: normal !important;
+      font-weight: 800 !important;
+      line-height: 1 !important;
+      letter-spacing: 0.08em !important;
+      white-space: nowrap !important;
+      overflow: visible !important;
+      text-overflow: clip !important;
+    }
+
+    nav#menu {
+      display: flex !important;
+      align-items: center !important;
+      gap: 24px !important;
+      margin-left: 0 !important;
+      font-family: Inter, Arial, sans-serif !important;
+      font-size: 14px !important;
+      font-weight: 700 !important;
+    }
+
+    nav#menu a {
+      position: relative !important;
+      padding: 31px 0 !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      color: inherit !important;
+      font-size: 14px !important;
+      font-weight: 700 !important;
+      white-space: nowrap !important;
+      transition: color 0.22s ease !important;
+    }
+
+    nav#menu a.active,
+    nav#menu a:hover {
+      color: var(--blue) !important;
+    }
+
+    nav#menu a::after {
+      content: "" !important;
+      position: absolute !important;
+      left: 0 !important;
+      bottom: 22px !important;
+      display: block !important;
+      width: 0 !important;
+      height: 2px !important;
+      background: var(--blue) !important;
+      transition: 0.25s !important;
+    }
+
+    nav#menu a:hover::after,
+    nav#menu a.active::after {
+      width: 100% !important;
+    }
+
+    .navbar > .btn {
+      padding: 14px 22px !important;
+      border-radius: 10px !important;
+      font-size: inherit !important;
+      font-weight: 800 !important;
+      white-space: nowrap !important;
+    }
+
+    .menu-btn {
+      display: none !important;
+      position: relative !important;
+      width: 48px !important;
+      height: 48px !important;
+      flex: 0 0 48px !important;
+      align-items: center !important;
+      justify-content: center !important;
+      border: 1px solid rgba(0, 114, 213, 0.18) !important;
+      border-radius: 14px !important;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(238, 247, 255, 0.82)) !important;
+      box-shadow: 0 10px 24px rgba(0, 80, 178, 0.12) !important;
+      cursor: pointer !important;
+      overflow: hidden !important;
+    }
+
+    .menu-btn > span:not(.menu-icon),
+    .menu-btn .menu-icon,
+    .menu-btn .menu-icon::before,
+    .menu-btn .menu-icon::after {
+      position: absolute !important;
+      left: 50% !important;
+      width: 22px !important;
+      height: 2px !important;
+      margin: 0 !important;
+      border-radius: 999px !important;
+      background: var(--dark) !important;
+      transform: translateX(-50%) !important;
+      transition: transform 0.28s ease, opacity 0.22s ease, top 0.28s ease !important;
+    }
+
+    .menu-btn > span:nth-child(1),
+    .menu-btn .menu-icon::before { top: 16px !important; }
+    .menu-btn > span:nth-child(2),
+    .menu-btn .menu-icon { top: 23px !important; }
+    .menu-btn > span:nth-child(3),
+    .menu-btn .menu-icon::after { top: 30px !important; }
+
+    .menu-btn .menu-icon::before,
+    .menu-btn .menu-icon::after { content: "" !important; }
+
+    .menu-btn.is-open > span:nth-child(1),
+    .menu-btn.is-open .menu-icon::before {
+      top: 23px !important;
+      transform: translateX(-50%) rotate(45deg) !important;
+    }
+
+    .menu-btn.is-open > span:nth-child(2),
+    .menu-btn.is-open .menu-icon {
+      opacity: 0 !important;
+      transform: translateX(-50%) scaleX(0) !important;
+    }
+
+    .menu-btn.is-open > span:nth-child(3),
+    .menu-btn.is-open .menu-icon::after {
+      top: 23px !important;
+      transform: translateX(-50%) rotate(-45deg) !important;
+    }
+
+    @media (min-width: 981px) {
+      .navbar {
+        height: 80px !important;
+        gap: 18px !important;
+      }
+
+      .brand {
+        flex: 0 1 470px !important;
+      }
+
+      .brand img {
+        width: 112px !important;
+      }
+
+      .brand-text strong {
+        font-size: 18px !important;
+        letter-spacing: 0.035em !important;
+      }
+
+      .brand-text small {
+        font-size: 10.5px !important;
+        line-height: 1 !important;
+      }
+
+      nav#menu {
+        gap: 16px !important;
+        margin-left: auto !important;
+        font-size: 13px !important;
+      }
+
+      nav#menu a {
+        padding: 27px 0 !important;
+        font-size: 13px !important;
+      }
+
+      nav#menu a::after {
+        bottom: 18px !important;
+      }
+
+      .navbar > .btn {
+        padding: 12px 18px !important;
+        border-radius: 14px !important;
+        font-size: 13px !important;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .menu-btn {
+        display: inline-flex !important;
+      }
+
+      nav#menu {
+        position: absolute !important;
+        top: 90px !important;
+        left: 18px !important;
+        right: 18px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0 !important;
+        max-height: 0 !important;
+        padding: 0 12px !important;
+        overflow: hidden !important;
+        border: 1px solid rgba(0, 114, 213, 0.14) !important;
+        border-radius: 18px !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        box-shadow: 0 18px 45px rgba(0, 80, 178, 0.16) !important;
+        opacity: 0 !important;
+        transform: translateY(-10px) scale(0.98) !important;
+        pointer-events: none !important;
+        transition: max-height 0.36s ease, padding 0.28s ease, opacity 0.25s ease, transform 0.28s ease !important;
+      }
+
+      nav#menu.open,
+      nav#menu.is-open {
+        max-height: 420px !important;
+        padding: 12px !important;
+        opacity: 1 !important;
+        transform: translateY(0) scale(1) !important;
+        pointer-events: auto !important;
+      }
+
+      nav#menu a {
+        padding: 13px 14px !important;
+        border-radius: 12px !important;
+        font-size: 14px !important;
+      }
+
+      nav#menu a:hover,
+      nav#menu a.active {
+        background: var(--light) !important;
+        color: var(--blue) !important;
+        transform: translateX(3px) !important;
+      }
+
+      nav#menu a.active {
+        border-left: 4px solid var(--blue) !important;
+        padding-left: 10px !important;
+      }
+
+      nav#menu a::after {
+        display: none !important;
+      }
+
+      .navbar > .btn {
+        display: none !important;
+      }
+
+      .brand img {
+        width: 118px !important;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .navbar {
+        height: 84px !important;
+        gap: 8px !important;
+      }
+
+      .brand {
+        flex: 1 1 auto !important;
+        gap: 8px !important;
+      }
+
+      .brand img {
+        width: clamp(58px, 18vw, 76px) !important;
+      }
+
+      .brand-text {
+        display: block !important;
+        flex: 1 1 auto !important;
+        max-width: calc(100vw - 118px) !important;
+        overflow: visible !important;
+      }
+
+      .brand-text strong {
+        font-size: clamp(11px, 3.25vw, 14px) !important;
+        line-height: 1.08 !important;
+        letter-spacing: 0.01em !important;
+      }
+
+      .brand-text small {
+        margin-top: 3px !important;
+        font-size: clamp(6px, 1.85vw, 8px) !important;
+        line-height: 1 !important;
+        letter-spacing: 0 !important;
+      }
+
+      .menu-btn {
+        width: 44px !important;
+        height: 44px !important;
+        flex: 0 0 44px !important;
+        border-radius: 13px !important;
+      }
+
+      .menu-btn > span:nth-child(1),
+      .menu-btn .menu-icon::before { top: 14px !important; }
+      .menu-btn > span:nth-child(2),
+      .menu-btn .menu-icon { top: 21px !important; }
+      .menu-btn > span:nth-child(3),
+      .menu-btn .menu-icon::after { top: 28px !important; }
+
+      .menu-btn.is-open > span:nth-child(1),
+      .menu-btn.is-open > span:nth-child(3),
+      .menu-btn.is-open .menu-icon::before,
+      .menu-btn.is-open .menu-icon::after { top: 21px !important; }
+    }
+  </style>
+
 </head>
 <body>
   <div class="topbar">
@@ -2339,7 +2693,7 @@
       </a>
 
       <nav id="menu">
-        <a href="index.html#start">Start</a>
+        <a href="index.html#start">Startseite</a>
         <a href="index.html#leistungen">Leistungen</a>
         <a href="index.html#ablauf">Ablauf</a>
         <a href="index.html#vorteile">Vorteile</a>
@@ -2351,13 +2705,16 @@
 
       <button
         class="menu-btn"
+        id="menuToggle"
         type="button"
         aria-label="Menü öffnen"
         aria-expanded="false"
         aria-controls="menu"
         onclick="toggleMenu(this)"
       >
-        <span class="menu-icon" aria-hidden="true"></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
   </header>
@@ -2499,7 +2856,7 @@
         <div>
           <h4>Navigation</h4>
           <ul>
-            <li><a href="index.html#start">Start</a></li>
+            <li><a href="index.html#start">Startseite</a></li>
             <li><a href="index.html#leistungen">Leistungen</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
             <li><a href="index.html#ueber-uns">Über uns</a></li>

@@ -53,37 +53,43 @@
         text-overflow: clip !important;
       }
     }
+  
 
+    /* LOGO VISIBILITY + INDEX SIZE ONLY */
+    .brand img {
+      display: block !important;
+      width: 126px !important;
+      height: auto !important;
+      flex: 0 0 auto !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
 
-    /* LOGO SIZE ONLY: same header logo sizing as index.html */
     @media (min-width: 981px) {
       .brand img {
         width: 112px !important;
-        flex: 0 0 auto !important;
       }
     }
 
     @media (max-width: 980px) {
       .brand img {
         width: 118px !important;
-        flex: 0 0 auto !important;
       }
     }
 
-    @media (max-width: 620px) {
+    @media (max-width: 640px) {
       .brand img {
         width: clamp(58px, 18vw, 76px) !important;
-        flex: 0 0 auto !important;
       }
     }
-  </style>
+</style>
 </head>
 <body>
   <div class="topbar"><div class="container"><span>✉ info@boehme-hv.de</span><span>☎ +49 176 1087 0618</span></div></div>
   <header>
     <div class="container navbar">
       <a class="brand" href="index.html#start" aria-label="Hausverwaltung Böhme">
-        <img src="assets/logo.png" alt="Hausverwaltung Böhme Logo" onerror="this.style.display='none'" />
+        <img src="assets/logo.png" alt="Hausverwaltung Böhme Logo" onerror="this.onerror=null;this.src='https://www.boehme-hv.de/assets/logo.png';" />
         <span class="brand-text"><strong>Hausverwaltung Böhme</strong><small>WEG-Verwaltung · Sondereigentumsverwaltung · Mietverwaltung</small></span>
       </a>
       <nav id="menu"><a href="index.html#start">Start</a><a href="leistungen.html">Leistungen</a><a href="index.html#ablauf">Ablauf</a><a href="index.html#vorteile">Vorteile</a><a href="kontakt.html">Kontakt</a><a href="index.html#ueber-uns">Über uns</a></nav>
@@ -105,7 +111,7 @@
       </article>
     </div></section>
   </main>
-  <footer><div class="container"><div class="footer-grid"><div><img src="assets/logo.png" alt="Hausverwaltung Böhme Logo" onerror="this.style.display='none'"><p>Hausverwaltung Böhme – zuverlässig, transparent und persönlich.</p></div><div><h4>Navigation</h4><ul><li><a href="index.html#start">Start</a></li><li><a href="leistungen.html">Leistungen</a></li><li><a href="kontakt.html">Kontakt</a></li><li><a href="index.html#ueber-uns">Über uns</a></li></ul></div><div><h4>Rechtliches</h4><ul><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li></ul></div><div><h4>Kontakt</h4><ul><li><a href="mailto:info@boehme-hv.de">info@boehme-hv.de</a></li><li><a href="tel:+4917610870618">+49 176 1087 0618</a></li></ul></div></div><div class="copyright">© 2026 Hausverwaltung Böhme. Alle Rechte vorbehalten.<div class="footer-legal-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></div></div></footer>
+  <footer><div class="container"><div class="footer-grid"><div><img src="assets/logo.png" alt="Hausverwaltung Böhme Logo" onerror="this.onerror=null;this.src='https://www.boehme-hv.de/assets/logo.png';"><p>Hausverwaltung Böhme – zuverlässig, transparent und persönlich.</p></div><div><h4>Navigation</h4><ul><li><a href="index.html#start">Start</a></li><li><a href="leistungen.html">Leistungen</a></li><li><a href="kontakt.html">Kontakt</a></li><li><a href="index.html#ueber-uns">Über uns</a></li></ul></div><div><h4>Rechtliches</h4><ul><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li></ul></div><div><h4>Kontakt</h4><ul><li><a href="mailto:info@boehme-hv.de">info@boehme-hv.de</a></li><li><a href="tel:+4917610870618">+49 176 1087 0618</a></li></ul></div></div><div class="copyright">© 2026 Hausverwaltung Böhme. Alle Rechte vorbehalten.<div class="footer-legal-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></div></div></footer>
   <script>const btn=document.getElementById('menuToggle'),menu=document.getElementById('menu');btn&&btn.addEventListener('click',()=>menu.classList.toggle('is-open'));</script>
 </body>
 </html>

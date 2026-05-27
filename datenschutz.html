@@ -53,6 +53,141 @@
         text-overflow: clip !important;
       }
     }
+  
+
+    /* MOBILE HEADER CONSISTENCY FIX: prevents phone-side bar/overflow and aligns header neatly */
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    header,
+    main,
+    footer,
+    section,
+    .container,
+    .navbar,
+    .legal-hero,
+    .legal-section {
+      max-width: 100%;
+    }
+
+    @media (max-width: 980px) {
+      header {
+        z-index: 99;
+      }
+
+      .navbar {
+        position: relative;
+        height: 84px !important;
+        min-height: 84px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 8px !important;
+      }
+
+      .brand {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        gap: 8px !important;
+      }
+
+      .brand img {
+        width: clamp(58px, 18vw, 76px) !important;
+        flex: 0 0 auto !important;
+      }
+
+      .brand-text {
+        display: block !important;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        max-width: calc(100vw - 118px) !important;
+        overflow: hidden !important;
+      }
+
+      .brand-text strong {
+        display: block !important;
+        font-size: clamp(11px, 3.25vw, 14px) !important;
+        line-height: 1.08 !important;
+        letter-spacing: 0.01em !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: clip !important;
+      }
+
+      .brand-text small {
+        display: block !important;
+        margin-top: 3px !important;
+        font-size: clamp(6px, 1.85vw, 8px) !important;
+        line-height: 1 !important;
+        letter-spacing: 0 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: clip !important;
+      }
+
+      .menu-btn {
+        position: relative !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 44px !important;
+        height: 44px !important;
+        flex: 0 0 44px !important;
+        border-radius: 13px !important;
+      }
+
+      .menu-btn span {
+        position: absolute !important;
+        width: 22px !important;
+        height: 2px !important;
+        margin: 0 !important;
+        border-radius: 999px !important;
+        transition: transform 0.28s ease, opacity 0.22s ease, top 0.28s ease !important;
+      }
+
+      .menu-btn span:nth-child(1) { top: 14px !important; }
+      .menu-btn span:nth-child(2) { top: 21px !important; }
+      .menu-btn span:nth-child(3) { top: 28px !important; }
+
+      .menu-btn.is-open span:nth-child(1) {
+        top: 21px !important;
+        transform: rotate(45deg) !important;
+      }
+
+      .menu-btn.is-open span:nth-child(2) {
+        opacity: 0 !important;
+        transform: scaleX(0) !important;
+      }
+
+      .menu-btn.is-open span:nth-child(3) {
+        top: 21px !important;
+        transform: rotate(-45deg) !important;
+      }
+
+      nav {
+        top: calc(100% + 10px) !important;
+        left: 13px !important;
+        right: 13px !important;
+        width: auto !important;
+        max-width: calc(100vw - 26px) !important;
+        overflow: hidden !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 26px, 1180px) !important;
+      }
+
+      .topbar {
+        display: none !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -83,6 +218,39 @@
     </div></section>
   </main>
   <footer><div class="container"><div class="footer-grid"><div><img src="assets/logo.png" alt="Hausverwaltung Böhme Logo" onerror="this.style.display='none'"><p>Hausverwaltung Böhme – zuverlässig, transparent und persönlich.</p></div><div><h4>Navigation</h4><ul><li><a href="index.html#start">Start</a></li><li><a href="leistungen.html">Leistungen</a></li><li><a href="kontakt.html">Kontakt</a></li><li><a href="index.html#ueber-uns">Über uns</a></li></ul></div><div><h4>Rechtliches</h4><ul><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li></ul></div><div><h4>Kontakt</h4><ul><li><a href="mailto:info@boehme-hv.de">info@boehme-hv.de</a></li><li><a href="tel:+4917610870618">+49 176 1087 0618</a></li></ul></div></div><div class="copyright">© 2026 Hausverwaltung Böhme. Alle Rechte vorbehalten.<div class="footer-legal-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></div></div></footer>
-  <script>const btn=document.getElementById('menuToggle'),menu=document.getElementById('menu');btn&&btn.addEventListener('click',()=>menu.classList.toggle('is-open'));</script>
+  <script>
+    const btn = document.getElementById('menuToggle');
+    const menu = document.getElementById('menu');
+
+    if (btn && menu) {
+      btn.setAttribute('aria-controls', 'menu');
+      btn.setAttribute('aria-expanded', 'false');
+
+      btn.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('is-open');
+        btn.classList.toggle('is-open', isOpen);
+        btn.setAttribute('aria-expanded', String(isOpen));
+        btn.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+      });
+
+      menu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('is-open');
+          btn.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.setAttribute('aria-label', 'Menü öffnen');
+        });
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 980) {
+          menu.classList.remove('is-open');
+          btn.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.setAttribute('aria-label', 'Menü öffnen');
+        }
+      });
+    }
+  </script>
 </body>
 </html>

@@ -2289,11 +2289,36 @@
     }
   </style>
 
+  <style>
+    .form-status {
+      display: none;
+      margin-top: 16px;
+      padding: 14px 16px;
+      border: 1px solid #b7ebc6;
+      border-radius: 14px;
+      background: #eafaf0;
+      color: #157347;
+      font-weight: 800;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .form-status.is-visible {
+      display: block;
+    }
+
+    .form-status.error {
+      border-color: #f5c2c7;
+      background: #fff1f2;
+      color: #b42318;
+    }
+  </style>
+
 </head>
 <body>
   <div class="topbar">
     <div class="container">
-      <span>✉ info@bhv-immobilienverwaltung.de</span>
+      <span>✉ info@boehme-hv.de</span>
       <span>☎ 0176 1087 0618</span>
     </div>
   </div>
@@ -2362,7 +2387,7 @@
               <b>✉</b>
               <div>
                 <strong>E-Mail</strong>
-                <a href="mailto:info@bhv-immobilienverwaltung.de">info@bhv-immobilienverwaltung.de</a>
+                <a href="mailto:info@boehme-hv.de">info@boehme-hv.de</a>
               </div>
             </div>
 
@@ -2391,8 +2416,8 @@
             Füllen Sie das Formular aus. Ihre Anfrage wird direkt über FormSubmit an uns gesendet.
           </p>
 
-          <form class="contact-page-form" action="https://formsubmit.co/wahebwahbe100@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="Neue Kontaktanfrage über die BHV Webseite" />
+          <form class="contact-page-form" action="https://formsubmit.co/info@boehme-hv.de" method="POST">
+            <input type="hidden" name="_subject" value="Neue Kontaktanfrage über die Böhme Immobilienverwaltung Webseite" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
@@ -2452,6 +2477,9 @@
             </div>
 
             <button class="btn btn-primary" type="submit">Anfrage senden →</button>
+            <div id="formStatus" class="form-status" role="status" aria-live="polite">
+              Ihre Anfrage wurde erfolgreich gesendet. Wir werden Ihnen so schnell wie möglich antworten.
+            </div>
           </form>
         </div>
       </div>
@@ -2490,8 +2518,8 @@
           <h4>Kontakt</h4>
           <ul>
             <li>
-              <a href="mailto:info@bhv-immobilienverwaltung.de">
-                info@bhv-immobilienverwaltung.de
+              <a href="mailto:info@boehme-hv.de">
+                info@boehme-hv.de
               </a>
             </li>
             <li><a href="tel:+4917610870618">0176 1087 0618</a></li>
@@ -2549,6 +2577,49 @@
 
 
 
+    function setupContactForm() {
+      const form = document.querySelector(".contact-page-form");
+      const status = document.getElementById("formStatus");
+      if (!form || !status) return;
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const submitButton = form.querySelector('button[type="submit"]');
+        status.classList.remove("error", "is-visible");
+
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = "Wird gesendet...";
+        }
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { Accept: "application/json" }
+          });
+
+          if (!response.ok) {
+            throw new Error("FormSubmit request failed");
+          }
+
+          form.reset();
+          status.textContent = "Ihre Anfrage wurde erfolgreich gesendet. Wir werden Ihnen so schnell wie möglich antworten.";
+          status.classList.add("is-visible");
+        } catch (error) {
+          status.textContent = "Die Anfrage konnte leider nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an info@boehme-hv.de.";
+          status.classList.add("error", "is-visible");
+        } finally {
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = "Anfrage senden →";
+          }
+        }
+      });
+    }
+
+
     function revealPage() {
       document.body.classList.add("page-ready");
 
@@ -2570,6 +2641,7 @@
       items.forEach((item) => observer.observe(item));
     }
 
+    setupContactForm();
     revealPage();
   </script>
 </body>

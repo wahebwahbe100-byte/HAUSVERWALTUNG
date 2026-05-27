@@ -1347,9 +1347,11 @@
       }
 
       .brand-text small {
-        max-width: 360px;
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: clip;
         font-size: 10.5px;
-        line-height: 1.45;
+        line-height: 1;
       }
 
       nav {
@@ -1557,10 +1559,10 @@
         margin-top: 3px;
         color: var(--blue);
         font-size: clamp(6px, 1.85vw, 8px);
-        line-height: 1.15;
+        line-height: 1;
         letter-spacing: 0;
-        white-space: normal;
-        overflow-wrap: anywhere;
+        white-space: nowrap;
+        overflow: visible;
         text-overflow: clip;
       }
 

@@ -3,11 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Böhme Immobilienverwaltung GmbH</title>
+  <title>Hausverwaltung Böhme | WEG-Verwaltung, Mietverwaltung & Sondereigentum</title>
   <meta
     name="description"
-    content="BHV Immobilienverwaltung GmbH – professionelle WEG-Verwaltung, Sondereigentumsverwaltung und Mietverwaltung."
+    content="Hausverwaltung Böhme betreut Immobilien zuverlässig, transparent und persönlich – mit WEG-Verwaltung, Mietverwaltung und Sondereigentumsverwaltung."
   />
+  <meta
+    name="keywords"
+    content="Hausverwaltung Böhme, Immobilienverwaltung, WEG-Verwaltung, Mietverwaltung, Sondereigentumsverwaltung, Objektbetreuung, Eigentümer, Immobilienbetreuung"
+  />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Hausverwaltung Böhme" />
+  <meta name="theme-color" content="#003488" />
+  <link rel="canonical" href="https://www.boehme-hv.de/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:title" content="Hausverwaltung Böhme | WEG-Verwaltung, Mietverwaltung & Sondereigentum" />
+  <meta
+    property="og:description"
+    content="Zuverlässige Immobilienverwaltung für Eigentümer: WEG-Verwaltung, Mietverwaltung und Sondereigentumsverwaltung mit klarer Kommunikation."
+  />
+  <meta property="og:url" content="https://www.boehme-hv.de/" />
+  <meta property="og:site_name" content="Hausverwaltung Böhme" />
+  <meta property="og:image" content="https://www.boehme-hv.de/assets/logo.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hausverwaltung Böhme | Immobilienverwaltung für Eigentümer" />
+  <meta
+    name="twitter:description"
+    content="Professionelle WEG-Verwaltung, Mietverwaltung und Sondereigentumsverwaltung – zuverlässig, transparent und persönlich."
+  />
+  <meta name="twitter:image" content="https://www.boehme-hv.de/assets/logo.png" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Hausverwaltung Böhme",
+      "url": "https://www.boehme-hv.de/",
+      "logo": "https://www.boehme-hv.de/assets/logo.png",
+      "image": "https://www.boehme-hv.de/assets/logo.png",
+      "email": "info@boehme-hv.de",
+      "telephone": "+4917610870618",
+      "description": "Professionelle WEG-Verwaltung, Mietverwaltung und Sondereigentumsverwaltung für Eigentümer.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Deutschland"
+      },
+      "serviceType": [
+        "WEG-Verwaltung",
+        "Mietverwaltung",
+        "Sondereigentumsverwaltung",
+        "Objektbetreuung"
+      ]
+    }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1248,6 +1299,101 @@
       text-align: center;
     }
 
+    .footer-legal-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal-links a {
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .footer-legal-links a:hover {
+      color: var(--white);
+    }
+
+
+
+    /* Desktop header refinement: keeps the added legal links neat without affecting mobile layout */
+    @media (min-width: 981px) {
+      .navbar {
+        height: 80px;
+        gap: 18px;
+      }
+
+      .brand {
+        flex: 0 1 470px;
+        min-width: 0;
+      }
+
+      .brand img {
+        width: 112px;
+        flex: 0 0 auto;
+      }
+
+      .brand-text {
+        min-width: 0;
+      }
+
+      .brand-text strong {
+        font-size: 18px;
+        letter-spacing: 0.035em;
+        white-space: nowrap;
+      }
+
+      .brand-text small {
+        max-width: 360px;
+        font-size: 10.5px;
+        line-height: 1.45;
+      }
+
+      nav {
+        gap: 16px;
+        font-size: 13px;
+        margin-left: auto;
+      }
+
+      nav a {
+        padding: 27px 0;
+        white-space: nowrap;
+      }
+
+      nav a::after {
+        bottom: 18px;
+      }
+
+      .desktop-legal-link {
+        padding: 8px 12px !important;
+        border: 1px solid rgba(0, 114, 213, 0.22);
+        border-radius: 999px;
+        color: var(--blue);
+        background: rgba(238, 247, 255, 0.72);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .desktop-legal-link::after {
+        display: none;
+      }
+
+      .desktop-legal-link:hover {
+        background: var(--blue);
+        color: var(--white);
+      }
+
+      .navbar > .btn {
+        padding: 12px 18px;
+        border-radius: 14px;
+        font-size: 13px;
+        white-space: nowrap;
+      }
+    }
+
     @media (max-width: 980px) {
       .topbar .container {
         justify-content: center;
@@ -1255,6 +1401,11 @@
 
       .menu-btn {
         display: inline-flex;
+      }
+
+
+      .desktop-legal-link {
+        display: none;
       }
 
       nav {
@@ -2035,12 +2186,14 @@
               </a>
             </li>
             <li><a href="tel:+4917610870618">+4917610870618</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
           </ul>
         </div>
       </div>
 
       <div class="copyright">
-        © 2026 BHV Immobilienverwaltung GmbH. Alle Rechte vorbehalten.
+        © 2026 Hausverwaltung Böhme. Alle Rechte vorbehalten.<div class="footer-legal-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
       </div>
     </div>
   </footer>

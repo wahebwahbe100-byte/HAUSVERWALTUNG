@@ -188,6 +188,146 @@
       }
     }
 
+
+    /* TABLET HEADER FIX: prevents the desktop menu/button from squeezing and wrapping */
+    @media (max-width: 1180px) and (min-width: 981px) {
+      header {
+        z-index: 99;
+      }
+
+      .navbar {
+        position: relative !important;
+        height: 84px !important;
+        min-height: 84px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 10px !important;
+      }
+
+      .brand {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        gap: 10px !important;
+      }
+
+      .brand img {
+        width: 82px !important;
+        flex: 0 0 auto !important;
+      }
+
+      .brand-text {
+        display: block !important;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        max-width: calc(100vw - 150px) !important;
+        overflow: hidden !important;
+      }
+
+      .brand-text strong {
+        display: block !important;
+        font-size: 15px !important;
+        line-height: 1.08 !important;
+        letter-spacing: 0.01em !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: clip !important;
+      }
+
+      .brand-text small {
+        display: block !important;
+        margin-top: 3px !important;
+        color: var(--blue) !important;
+        font-size: 8px !important;
+        line-height: 1 !important;
+        letter-spacing: 0 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: clip !important;
+      }
+
+      .menu-btn {
+        position: relative !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 44px !important;
+        height: 44px !important;
+        flex: 0 0 44px !important;
+        border-radius: 13px !important;
+      }
+
+      .menu-btn span {
+        position: absolute !important;
+        width: 22px !important;
+        height: 2px !important;
+        margin: 0 !important;
+        border-radius: 999px !important;
+        transition: transform 0.28s ease, opacity 0.22s ease, top 0.28s ease !important;
+      }
+
+      .menu-btn span:nth-child(1) { top: 14px !important; }
+      .menu-btn span:nth-child(2) { top: 21px !important; }
+      .menu-btn span:nth-child(3) { top: 28px !important; }
+
+      .menu-btn.is-open span:nth-child(1) {
+        top: 21px !important;
+        transform: rotate(45deg) !important;
+      }
+
+      .menu-btn.is-open span:nth-child(2) {
+        opacity: 0 !important;
+        transform: scaleX(0) !important;
+      }
+
+      .menu-btn.is-open span:nth-child(3) {
+        top: 21px !important;
+        transform: rotate(-45deg) !important;
+      }
+
+      nav {
+        position: absolute !important;
+        top: calc(100% + 10px) !important;
+        left: 18px !important;
+        right: 18px !important;
+        display: none !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0 !important;
+        width: auto !important;
+        max-width: calc(100vw - 36px) !important;
+        padding: 12px !important;
+        overflow: hidden !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 20px !important;
+        background: #fff !important;
+        box-shadow: var(--shadow) !important;
+      }
+
+      nav.is-open {
+        display: flex !important;
+      }
+
+      nav a {
+        padding: 13px 14px !important;
+        border-radius: 12px !important;
+        white-space: nowrap !important;
+      }
+
+      nav a::after {
+        display: none !important;
+      }
+
+      nav a:hover {
+        background: var(--light) !important;
+        color: var(--blue) !important;
+      }
+
+      .navbar > .btn {
+        display: none !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -243,7 +383,7 @@
       });
 
       window.addEventListener('resize', () => {
-        if (window.innerWidth > 980) {
+        if (window.innerWidth > 1180) {
           menu.classList.remove('is-open');
           btn.classList.remove('is-open');
           btn.setAttribute('aria-expanded', 'false');

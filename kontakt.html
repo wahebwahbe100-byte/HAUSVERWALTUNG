@@ -2388,10 +2388,12 @@
           <p class="eyebrow">Anfrage senden</p>
           <h2>Unverbindliches Angebot anfordern</h2>
           <p>
-            Füllen Sie das Formular aus. Beim Absenden wird Ihre E-Mail-App mit allen Angaben geöffnet.
+            Füllen Sie das Formular aus. Ihre Anfrage wird direkt über Formspree an uns übermittelt.
           </p>
 
-          <form class="contact-page-form" onsubmit="sendMail(event)">
+          <form class="contact-page-form" action="https://formspree.io/wahebwahbe100@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Neue Kontaktanfrage über die BHV Website" />
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
             <div class="form-grid">
               <div>
                 <label for="name">Name</label>
@@ -2400,7 +2402,7 @@
 
               <div>
                 <label for="email">E-Mail</label>
-                <input id="email" name="email" type="email" placeholder="Ihre E-Mail-Adresse" required />
+                <input id="email" name="_replyto" type="email" placeholder="Ihre E-Mail-Adresse" required />
               </div>
 
               <div>
@@ -2447,7 +2449,7 @@
               </label>
             </div>
 
-            <button class="btn btn-primary" type="submit">Anfrage per E-Mail senden →</button>
+            <button class="btn btn-primary" type="submit">Anfrage senden →</button>
           </form>
         </div>
       </div>
@@ -2542,38 +2544,6 @@
       button.setAttribute("aria-expanded", "false");
       button.setAttribute("aria-label", "Menü öffnen");
     });
-
-    function sendMail(event) {
-      event.preventDefault();
-
-      const form = event.target;
-
-      if (!form.privacy.checked) {
-        form.privacy.focus();
-        return;
-      }
-
-      const services = Array.from(form.querySelectorAll('input[name="services"]:checked'))
-        .map((input) => input.value)
-        .join(', ');
-
-      const objectValue = form.object.value.trim();
-
-      const subject = encodeURIComponent("Neue Kontaktanfrage über die BHV Website");
-      const body = encodeURIComponent(
-        `Name: ${form.name.value}\n` +
-        `E-Mail: ${form.email.value}\n` +
-        `Telefon: ${form.phone.value}\n` +
-        `Objekt / Ort: ${objectValue || 'Keine Auswahl'}\n` +
-        `Einheiten: ${form.units.value}\n` +
-        `Gewünschte Leistungen: ${services || 'Keine Auswahl'}\n` +
-        `Datenschutz: Zustimmung erteilt\n\n` +
-        `Nachricht:\n${form.message.value}`
-      );
-
-      window.location.href =
-        `mailto:info@bhv-immobilienverwaltung.de?subject=${subject}&body=${body}`;
-    }
 
     function revealPage() {
       document.body.classList.add("page-ready");

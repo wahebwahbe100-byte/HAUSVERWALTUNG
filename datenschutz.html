@@ -437,6 +437,19 @@
     }
   </style>
 
+
+  <style>
+    /* Desktop only: highlight current Inhalt item while scrolling */
+    @media (min-width: 981px) {
+      .side-card a.is-current {
+        background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+        color: #fff !important;
+        box-shadow: 0 10px 22px rgba(0, 80, 178, 0.18);
+        transform: translateX(3px);
+      }
+    }
+  </style>
+
 </head>
 <body>
   <div class="topbar"><div class="container"><span>✉ info@boehme-hv.de</span><span>☎ +49 176 1087 0618</span></div></div>
@@ -476,5 +489,52 @@
       btn.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
     });
   </script>
+
+  <script>
+    /* Desktop only: update Inhalt link color according to the visible section */
+    (function () {
+      const desktopQuery = window.matchMedia('(min-width: 981px)');
+      const contentLinks = Array.from(document.querySelectorAll('.side-card a[href^="#"]'));
+      const sections = contentLinks
+        .map(link => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+
+      if (!contentLinks.length || !sections.length) return;
+
+      function clearCurrent() {
+        contentLinks.forEach(link => link.classList.remove('is-current'));
+      }
+
+      function setCurrent(id) {
+        clearCurrent();
+        const activeLink = document.querySelector('.side-card a[href="#' + id + '"]');
+        if (activeLink) activeLink.classList.add('is-current');
+      }
+
+      function updateCurrentByScroll() {
+        if (!desktopQuery.matches) {
+          clearCurrent();
+          return;
+        }
+
+        const triggerLine = 150;
+        let currentSection = sections[0];
+
+        sections.forEach(section => {
+          if (section.getBoundingClientRect().top <= triggerLine) {
+            currentSection = section;
+          }
+        });
+
+        setCurrent(currentSection.id);
+      }
+
+      window.addEventListener('scroll', updateCurrentByScroll, { passive: true });
+      window.addEventListener('resize', updateCurrentByScroll);
+      desktopQuery.addEventListener?.('change', updateCurrentByScroll);
+      updateCurrentByScroll();
+    })();
+  </script>
+
 </body>
 </html>
